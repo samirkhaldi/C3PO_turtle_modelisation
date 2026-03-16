@@ -1,0 +1,122 @@
+@prefix : <https://www.turtle_tutorial.com/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+:Reporting a owl:Class ;
+:hasRP :RP;
+:hasCRP :CRP;
+:hasIR :IR;
+.
+
+:RP a :Reporting ;
+:hasStartDate: xsd:date;
+:hasEndDate: xsd:date;
+:hasNumber: xsd:integer;
+:reportAbout :EuropeanProject
+.
+
+:RP1 a owl:NameIndividual,:RP ;
+:hasStartDate "2020-03-11" ;
+:hasEndDate "2022-03-11" ;
+:reportAbout :LUMEN
+.
+
+:RP2 a owl:NameIndividual,:RP ;
+:hasStartDate "2022-03-11" ;
+:hasEndDate "2024-03-11" ;
+:reportAbout :LUMEN
+.
+
+
+:CRP a :Reporting ;
+:hasStartDate: xsd:date;
+:hasEndDate: xsd:date;
+:hasNumber: xsd:integer;
+:reportAbout :EuropeanProject
+.
+
+:IR a :Reporting ;
+:hasStartDate: xsd:date;
+:hasEndDate: xsd:date;
+:hasNumber: xsd:integer;
+:reportAbout :EuropeanProject
+.
+
+
+
+:EuropeanProject a owl:Class ; 
+:name xsd:string;
+:hasStartDate xsd:date;
+:hasEndDate xsd:date;
+:hasReporting :Reporting;
+.
+               
+:LUMEN a owl:NameIndividual, :EuropeanProject ;
+:name "LUMEN";
+:hasStartDate "2020-03-11";
+:hasEndDate "2024-03-11";
+:hasReporting :Reporting;
+.
+
+:GRAPHIA a owl:NameIndividual, :EuropeanProject ;
+:name "GRAPHIA";
+:hasStartDate "2022-03-11";
+:hasEndDate "2027-03-11";
+:hasReporting :Reporting;
+.
+
+:Employee a owl:Class ; 
+:workOn :EuropeanProject ;
+:hasFName ^^xsd:string ;
+:hasLName ^^xsd:string ;
+:hoursWorkedLumen ^^xsd:integer ;
+:hoursWorkedGraphia ^^xsd:integer ;
+:hasHourlyRate ^^xsd:integer ;
+:received :Payslip;
+:hasAnnualPersonnalCost ^^xsd:integer ;
+:gotAnnualProductiveHours ^^xsd:integer  
+.
+
+:Employee1 a :Employee ;
+:hasFName "Samir" ;
+:hasLName "Khaldi" ;
+:hoursWorkedLumen "12";
+:worksOn :LUMEN;
+:hasHourlyRate "30";
+:gotAnnualProductiveHours "1720";
+:received :Employee1_Payslip
+.
+
+:Employee2 a :Employee ;
+:hasFName "Yann" ;
+:hasLName "Le Franc" ;
+:hoursWorkedGraphia "42"^^xsd:integer ;
+:worksOn :GRAPHIA ;
+:hasHourlyRate "100"^^xsd:integer ;
+:gotAnnualProductiveHours "1720";
+:received :Employee2_Payslip
+
+.       
+
+:Payslip a owl:Class ;
+:salaryGrossAmount ^^xsd:integer ;
+:employeeContributionAmount ^^xsd:integer 
+
+.
+
+:Employee1_Payslip a owl:NameIndividual, :Payslip ;
+:PayslipTo :Employee1;
+:salaryGrossAmount "1900"^^xsd:integer ;
+:employeeContributionAmount "200"^^xsd:integer   
+
+.
+
+:Employee2_Payslip a owl:NameIndividual, :Payslip ;
+:PayslipTo :Employee2;
+:salaryGrossAmount "5000"^^xsd:integer ;
+:employeeContributionAmount "1200"^^xsd:integer   
+
+.
