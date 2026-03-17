@@ -1,0 +1,26 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod :about :EuropeanProject .
+:ReportingPeriod :monthDuration xsd:integer .
+
+:RP1 rdf:type :EuropeanProject .
+:RP1 :about :LUMEN .
+:RP1 :monthDuration 2 .
+
+:RP2 rdf:type :EuropeanProject .
+:RP2 :about :LUMEN .
+:RP2 :monthDuration 4 .
+
+
+# select ?duration
+# where {
+# :RP2 :monthDuration ?duration .
+# }
