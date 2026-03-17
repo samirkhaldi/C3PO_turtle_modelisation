@@ -11,11 +11,11 @@
 :ReportingPeriod :aboutProject :EuropeanProject .
 :ReportingPeriod :gotName :xsd:string .
 
-:RP1 rdf:type :EuropeanProject .
+:RP1 rdf:type :ReportingPeriod .
 :RP1 :aboutProject :LUMEN .
 :RP1 :gotName "RP1" .
 
-:RP2 rdf:type :EuropeanProject .
+:RP2 rdf:type :ReportingPeriod .
 :RP2 :aboutProject :LUMEN .
 :RP2 :gotName "RP2" .
 
