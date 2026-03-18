@@ -1,0 +1,15 @@
+
+
+:Employee a rdfs:Class .
+:Employee :gotAnnualProductiveHours xsd:integer .
+
+:Yann rdf:type :Employee .
+:Yann :gotAnnualProductiveHours 1720 .
+
+
+
+# select ?monthlyproductivehours
+# where { 
+# ?Yann :gotAnnualProductiveHours ?annualproductivehours . 
+# BIND((?annualproductivehours) / 12 AS ?monthlyproductivehours)
+# }

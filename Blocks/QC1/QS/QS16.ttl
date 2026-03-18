@@ -1,0 +1,29 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:Employee a rdfs:Class .
+:Employee :workOn :EuropeanProject .
+
+:Yann rdf:type :Employee .
+:Yann :workOn :LUMEN .
+
+
+
+# REQUETE SPARQL :
+
+
+# prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+# prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+# prefix xsd: <http://www.w3.org/2001/XMLSchema#>
+# prefix : <https://www.turtle_tutorial.com/>
+
+# select ?name
+# where{
+# ?name :worksOn ?LUMEN.
+# }

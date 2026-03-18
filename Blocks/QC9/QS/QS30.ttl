@@ -8,19 +8,18 @@
 :LUMEN rdf:type :EuropeanProject . 
 
 :ReportingPeriod a rdfs:Class . 
-:ReportingPeriod :about :EuropeanProject .
+:ReportingPeriod :aboutProject :EuropeanProject .
 :ReportingPeriod :gotName :xsd:string .
 
 :RP1 rdf:type :EuropeanProject .
-:RP1 :about :LUMEN .
+:RP1 :aboutProject :LUMEN .
 :RP1 :gotName "RP1" .
 
 :RP2 rdf:type :EuropeanProject .
-:RP2 :about :LUMEN .
+:RP2 :aboutProject :LUMEN .
 :RP2 :gotName "RP2" .
 
-# select ?rplist
-# where {
-# ?ReportingPeriod :about ?LUMEN .
-# ?ReportingPeriod :gotName ?rplist .
+
+# select ?period {
+# ?period :aboutProject ?LUMEN .
 # }

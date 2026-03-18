@@ -3,23 +3,23 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix : <https://www.turtle_tutorial.com/>.
 
-# Personnel Cost = Eligible Hours Worked × Hourly Rate
-
 :EuropeanProject a rdfs:Class .
 
 :LUMEN rdf:type :EuropeanProject . 
 
 :ReportingPeriod a rdfs:Class . 
 :ReportingPeriod :about :EuropeanProject .
-:ReportingPeriod :totalPersonnalCost xsd:integer . 
+:ReportingPeriod :gotName :xsd:string .
 
+:RP1 rdf:type :EuropeanProject .
+:RP1 :about :LUMEN .
+:RP1 :gotName "RP1" .
 
-:RP3 rdf:type :ReportingPeriod .
-:RP3 :about :LUMEN .
-:RP3 :totalPersonnalCost 35000 .
+:RP2 rdf:type :EuropeanProject .
+:RP2 :about :LUMEN .
+:RP2 :gotName "RP2" .
 
-# select ?totalcost
-# where { 
-# ?RP3 :about :LUMEN .
-# ?RP3 :totalPersonnalCost ?totalcost .
-# }
+select ?LUMEN 
+where {
+?ReportingPeriod :about ?LUMEN .
+}

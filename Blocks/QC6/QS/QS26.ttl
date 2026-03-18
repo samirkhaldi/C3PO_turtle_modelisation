@@ -1,0 +1,31 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:TravelInformation a rdfs:Class .
+:TravelInformation :travelEventName xsd:string .
+:TravelInformation :about :EuropeanProject .
+:TravelInformation :destination xsd:string .
+:TravelInformation :travelCost xsd:integer .
+
+
+
+:Travel_1 rdf:type :TravelInformation .
+:Travel_1 :travelEventName "LUMEN_Meet2" .
+:Travel_1 :about :LUMEN . 
+:Travel_1 :travelCost 1239 .
+
+
+
+
+# select ?travelcost
+# where {
+# ?TravelInformation :about ?LUMEN .
+# ?TravelInformation :travelEventName "LUMEN_Meet2" .
+# ?TravelInformation :travelCost ?travelcost.
+# }

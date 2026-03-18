@@ -4,15 +4,12 @@
 @prefix : <https://www.turtle_tutorial.com/>.
 
 :Employee a rdfs:Class .
-:Employee :gotSalaryGross xsd:integer .
-:Employee :gotPatronalContribution xsd:integer .
+:Employee :gotAnnualProductiveHours xsd:integer .
 
 :Yann rdf:type :Employee .
-:Yann :workOn :LUMEN .
-:Yann :gotSalaryGross 2000 .
-:Yann :gotPatronalContribution 200 .
+:Yann :gotAnnualProductiveHours 1720 .
 
-# select ?salarygross 
-# where {
-# ?Yann :gotSalaryGross ?salarygross .
-# }
+SELECT ?annualproductivehours
+WHERE { 
+  ?yann :gotAnnualProductiveHours ?annualproductivehours .  
+}

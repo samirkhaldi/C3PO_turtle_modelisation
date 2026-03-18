@@ -1,0 +1,30 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:GreatCompany a rdfs:Class .
+:GreatCompany :have :Employee .
+
+:Employee a rdfs:Class .
+:Employee :workAt :GreatCompany .
+
+:Yann rdf:type :Employee .
+:Yann :workAt :GreatCompany .
+
+:50cent rdf:type :Employee .
+:50cent :workAt :GreatCompany .
+
+
+:Zidane rdf:type :Employee .
+:Zidane :workAt :GreatCompany .
+
+
+# select ?list 
+# where {
+# ?list :workAt ?GreatCompany .
+# }
+
+
+
+

@@ -9,13 +9,12 @@
 
 :Employee a rdfs:Class .
 :Employee :workOn :EuropeanProject .
+:Employee :hoursWorkedOnLumen: xsd:integer .
 
 :Yann rdf:type :Employee .
 :Yann :workOn :LUMEN .
+:Yann :hoursWorkedOnLumen: 32 .
 
-
-
-# REQUETE SPARQL :
 
 
 # prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -23,7 +22,7 @@
 # prefix xsd: <http://www.w3.org/2001/XMLSchema#>
 # prefix : <https://www.turtle_tutorial.com/>
 
-# select ?name
-# where{
-# ?name :worksOn ?LUMEN.
+# select ?time 
+# where {
+# ?Yann :hoursWorkedOnLumen: ?time .
 # }
