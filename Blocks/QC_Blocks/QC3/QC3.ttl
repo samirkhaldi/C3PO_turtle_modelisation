@@ -22,7 +22,3 @@
 :RP3 :about :LUMEN .
 :RP3 :gotName "RP3" .
 
-#  select ?worker
-# where {
-# ?worker :workDuring ?RP3 .
-# }

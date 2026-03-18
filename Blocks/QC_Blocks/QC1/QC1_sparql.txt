@@ -1,0 +1,5 @@
+select ?totalcost
+where { 
+?RP3 :about :LUMEN .
+?RP3 :totalPersonnalCost ?totalcost .
+}

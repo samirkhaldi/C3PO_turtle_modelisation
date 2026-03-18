@@ -1,0 +1,4 @@
+SELECT ?annualproductivehours
+WHERE { 
+  ?yann :gotAnnualProductiveHours ?annualproductivehours .  
+}

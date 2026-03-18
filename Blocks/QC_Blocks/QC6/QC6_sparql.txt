@@ -1,0 +1,6 @@
+select (SUM(?cost) as ?total)
+where {
+?TravelInformation :aboutProject ?LUMEN .
+?TravelInformation :gotPeriod :P1 .
+?TravelInformation :Cost ?cost .
+}

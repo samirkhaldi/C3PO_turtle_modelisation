@@ -21,7 +21,3 @@
 :WP2 :gotName "WP2" . 
 
 
-# select ?wplist 
-# where {
-# ?WorkPackage :about ?LUMEN .
-# }

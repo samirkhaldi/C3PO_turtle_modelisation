@@ -1,0 +1,5 @@
+select ?monthlyproductivehours
+where { 
+?Yann :gotAnnualProductiveHours ?annualproductivehours . 
+BIND((?annualproductivehours) / 12 AS ?monthlyproductivehours)
+}

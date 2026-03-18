@@ -32,10 +32,5 @@
 :Travel_2 :aboutProject :LUMEN . 
 :Travel_2 :Cost 2000 .
 
-# select (SUM(?cost) as ?total)
-# where {
-# ?TravelInformation :aboutProject ?LUMEN .
-# ?TravelInformation :gotPeriod ?P1 .
-# ?TravelInformation :Cost ?cost .
-# }
+
 

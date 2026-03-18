@@ -9,7 +9,3 @@
 :Yann rdf:type :Employee .
 :Yann :gotPatronalContribution 200 .
 
-# select ?patronalContribution
-# where {
-# ?Yann :gotPatronalContribution ?patronalContribution.
-# }

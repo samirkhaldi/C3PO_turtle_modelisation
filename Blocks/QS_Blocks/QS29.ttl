@@ -35,9 +35,4 @@
 :Travel_2 :travelEventName "LUMEN_Meet2" .
 :Travel_2 :aboutProject :LUMEN . 
 
-# select ?traveleventlist 
-# where {
-# ?TravelInformation :aboutProject ?LUMEN .
-# ?TravelInformation :gotPeriod ?RP1 .
-# ?TravelInformation :travelEventName ?traveleventlist .
-# }
+

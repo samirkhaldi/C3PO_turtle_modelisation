@@ -1,0 +1,7 @@
+select ?person ?hourslogged ?during
+where{
+?person :hoursWorkedDuring :P1 .
+?person :hoursWorkedOnLumen: ?hourslogged
+ .
+:P1 :month ?during .
+}

@@ -20,10 +20,7 @@
 :Zidane :workAt :GreatCompany .
 
 
-# select ?list 
-# where {
-# ?list :workAt ?GreatCompany .
-# }
+
 
 
 

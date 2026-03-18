@@ -20,7 +20,4 @@
 :RP2 :monthDuration 4 .
 
 
-# select ?duration
-# where {
-# :RP2 :monthDuration ?duration .
-# }
+

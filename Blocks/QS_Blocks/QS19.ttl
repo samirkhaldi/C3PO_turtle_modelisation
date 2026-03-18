@@ -14,11 +14,4 @@
 
 
 
-# SELECT ?annualPersonalCost
-# WHERE { 
-#   ?yann :gotSalaryGross ?salarygross .
-#   ?yann :gotPatronalContribution ?patronalcontribution .
-  
-#   BIND((?salarygross + ?patronalcontribution) * 12 AS ?annualPersonalCost)
-# }
 

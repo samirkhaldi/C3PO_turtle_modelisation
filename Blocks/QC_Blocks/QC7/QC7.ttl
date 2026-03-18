@@ -50,9 +50,3 @@
 :P1 :gotName "P1" .
 
 
-# select (SUM(?pm) AS ?total)
-# where {
-# ?WorkPackage :about ?LUMEN .
-# ?WorkPackage :RP :P1 .
-# ?WorkPackage :personMonthSpent ?pm .
-# }

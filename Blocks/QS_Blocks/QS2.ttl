@@ -16,7 +16,4 @@
 :UTOPIA :id 3 .
 
 
-# select ?list 
-# where {
-# ?EuropeanProject :id ?list .    
-# }
+

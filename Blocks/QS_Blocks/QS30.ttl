@@ -20,6 +20,3 @@
 :RP2 :gotName "RP2" .
 
 
-# select ?period {
-# ?period :aboutProject ?LUMEN .
-# }

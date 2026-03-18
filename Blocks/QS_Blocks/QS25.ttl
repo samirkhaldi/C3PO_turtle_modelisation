@@ -19,9 +19,5 @@
 :TravelInformation :travelEventName "GRAPHIA_Meet8" .
 
 
-# select ?travelEventList 
-# where {
-# ?TravelInformation :about ?LUMEN .
-# ?TravelInformation :travelEventName ?travelEventList .
-# }
+
 

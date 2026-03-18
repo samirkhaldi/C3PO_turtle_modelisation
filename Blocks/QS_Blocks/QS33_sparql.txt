@@ -1,0 +1,4 @@
+select ?list 
+where {
+?list :workAt ?GreatCompany .
+}

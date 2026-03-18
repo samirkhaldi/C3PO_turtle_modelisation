@@ -1,0 +1,5 @@
+select ?travelEventList 
+where {
+?TravelInformation :about ?LUMEN .
+?TravelInformation :travelEventName ?travelEventList .
+}

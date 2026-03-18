@@ -1,0 +1,4 @@
+select ?duration
+where {
+:RP2 :monthDuration ?duration .
+}

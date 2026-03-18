@@ -12,7 +12,3 @@
 :Yann :gotSalaryGross 2000 .
 :Yann :gotPatronalContribution 200 .
 
-# select ?salarygross 
-# where {
-# ?Yann :gotSalaryGross ?salarygross .
-# }

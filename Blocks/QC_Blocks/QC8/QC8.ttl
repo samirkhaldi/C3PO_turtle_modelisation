@@ -19,8 +19,4 @@
 :Zidane :Name "Zidane" .
 
 
-# select ?hourlyrate ?name
-# where{
-# ?name :gotHourlyRate: ?hourlyrate . 
-# }
 

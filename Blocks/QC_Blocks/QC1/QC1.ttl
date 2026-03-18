@@ -3,7 +3,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix : <https://www.turtle_tutorial.com/>.
 
-# Personnel Cost = Eligible Hours Worked × Hourly Rate
 
 :EuropeanProject a rdfs:Class .
 
@@ -18,8 +17,3 @@
 :RP3 :about :LUMEN .
 :RP3 :totalPersonnalCost 35000 .
 
-# select ?totalcost
-# where { 
-# ?RP3 :about :LUMEN .
-# ?RP3 :totalPersonnalCost ?totalcost .
-# }
