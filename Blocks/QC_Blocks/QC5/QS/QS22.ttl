@@ -19,7 +19,8 @@
 :RP2 :about :LUMEN .
 :RP2 :gotName "RP2" .
 
-select ?LUMEN 
-where {
-?ReportingPeriod :about ?LUMEN .
-}
+# select ?rplist
+# where {
+# ?ReportingPeriod :about ?LUMEN .
+# ?ReportingPeriod :gotName ?rplist .
+# }

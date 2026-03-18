@@ -1,0 +1,58 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:Employee a rdfs:Class .
+:Employee :workOn :EuropeanProject .
+
+:Yann rdf:type :Employee .
+:Yann :workOn :LUMEN .
+
+:WorkPackage a rdfs:Class . 
+:WorkPackage :about :EuropeanProject .
+:WorkPackage :gotName xsd:string .
+:WorkPackage :personMonthSpent xsd:integer .
+
+:WP2 rdf:type :WorkPackage .
+:WP2 :about :LUMEN .
+:WP2 :gotName "WP2" . 
+:WP2 :personMonthSpent 6 .
+:WP2 :RP :P1 .
+
+:WP3 rdf:type :WorkPackage .
+:WP3 :about :LUMEN .
+:WP3 :gotName "WP4" . 
+:WP3 :personMonthSpent 10 .
+:WP3 :RP :P1 .
+
+:WP4 rdf:type :WorkPackage .
+:WP4 :about :LUMEN .
+:WP4 :gotName "WP4" . 
+:WP4 :personMonthSpent 15 .
+:WP4 :RP :P1 .
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod :about :EuropeanProject .
+:ReportingPeriod :gotName :xsd:string .
+
+:P1 rdf:type :EuropeanProject .
+:P1 :about :LUMEN .
+:P1 :gotName "P1" .
+
+
+# select (SUM(?pm) AS ?total)
+# where {
+# ?WorkPackage :about ?LUMEN .
+# ?WorkPackage :RP :P1 .
+# ?WorkPackage :personMonthSpent ?pm .
+# }

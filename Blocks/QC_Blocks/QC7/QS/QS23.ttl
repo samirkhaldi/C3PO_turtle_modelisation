@@ -9,7 +9,10 @@
 :Yann rdf:type :Employee .
 :Yann :gotAnnualProductiveHours 1720 .
 
-SELECT ?annualproductivehours
-WHERE { 
-  ?yann :gotAnnualProductiveHours ?annualproductivehours .  
-}
+
+
+# select ?monthlyproductivehours
+# where { 
+# ?Yann :gotAnnualProductiveHours ?annualproductivehours . 
+# BIND((?annualproductivehours) / 12 AS ?monthlyproductivehours)
+# }

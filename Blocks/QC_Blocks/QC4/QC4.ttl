@@ -1,0 +1,45 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:Employee a rdfs:Class .
+:Employee :workOn :EuropeanProject .
+:Employee :hoursWorkedOnLumen: xsd:integer .
+
+:Yann rdf:type :Employee .
+:Yann :workOn :LUMEN .
+:Yann :hoursWorkedOnLumen: 32 .
+
+:WorkPackage a rdfs:Class . 
+:WorkPackage :about :EuropeanProject .
+:WorkPackage :gotName xsd:string .
+:WorkPackage :personMonthSpent xsd:integer .
+
+
+
+:WP4 rdf:type :WorkPackage .
+:WP4 :about :LUMEN .
+:WP4 :gotName "WP4" . 
+:WP4 :personMonthSpent 6 .
+:WP4 :RP :RP1 .
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod :about :EuropeanProject .
+:ReportingPeriod :gotName :xsd:string .
+
+:RP1 rdf:type :EuropeanProject .
+:RP1 :about :LUMEN .
+:RP1 :gotName "RP1" .
+
+
+# select ?pm
+# where {
+# ?WP4 :about ?LUMEN .
+# ?WP4 :RP :RP1 .
+# ?WP4 :personMonthSpent ?pm .
+# }

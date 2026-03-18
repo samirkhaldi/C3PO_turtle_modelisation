@@ -1,0 +1,41 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+:EuropeanProject :id xsd:integer .
+
+:LUMEN rdf:type :EuropeanProject . 
+:LUMEN :id 1 .
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod :aboutProject :EuropeanProject .
+:ReportingPeriod :gotName :xsd:string .
+
+:P1 rdf:type :ReportingPeriod .
+:P1 :aboutProject :LUMEN .
+:P1 :gotName "P1" .
+
+:TravelInformation a rdfs:Class .
+:TravelInformation :travelEventName xsd:string .
+:TravelInformation :Cost xsd:integer .
+:TravelInformation :aboutProject :EuropeanProject .
+
+:Travel_1 rdf:type :TravelInformation .
+:Travel_1 :gotPeriod :P1 .
+:Travel_1 :aboutProject :LUMEN . 
+:Travel_1 :Cost 1240 .
+
+:Travel_2 rdf:type :TravelInformation .
+:Travel_2 :gotPeriod :P1 .
+:Travel_2 :aboutProject :LUMEN . 
+:Travel_2 :Cost 2000 .
+
+# select (SUM(?cost) as ?total)
+# where {
+# ?TravelInformation :aboutProject ?LUMEN .
+# ?TravelInformation :gotPeriod ?P1 .
+# ?TravelInformation :Cost ?cost .
+# }
+

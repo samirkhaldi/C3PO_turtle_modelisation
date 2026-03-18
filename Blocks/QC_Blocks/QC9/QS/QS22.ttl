@@ -11,15 +11,16 @@
 :ReportingPeriod :about :EuropeanProject .
 :ReportingPeriod :gotName :xsd:string .
 
-:RP1 rdf:type :EuropeanProject .
+:RP1 rdf:type :ReportingPeriod .
 :RP1 :about :LUMEN .
 :RP1 :gotName "RP1" .
 
-:RP2 rdf:type :EuropeanProject .
+:RP2 rdf:type :ReportingPeriod .
 :RP2 :about :LUMEN .
 :RP2 :gotName "RP2" .
 
-select ?LUMEN 
-where {
-?ReportingPeriod :about ?LUMEN .
-}
+# select ?rplist
+# where {
+# ?ReportingPeriod :about ?LUMEN .
+# ?ReportingPeriod :gotName ?rplist .
+# }
