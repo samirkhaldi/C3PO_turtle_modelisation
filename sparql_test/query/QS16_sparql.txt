@@ -1,4 +1,5 @@
 select ?name
 where{
-?name :workOn ?LUMEN.
+?Employee :workOn :LUMEN .
+?Employee :Name ?name .
 }

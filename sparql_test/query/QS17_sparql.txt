@@ -5,5 +5,5 @@ prefix : <https://www.turtle_tutorial.com/>
 
 select ?time 
 where {
-?person :hoursWorkedOnLumen: ?time .
+:Yann :hoursWorkedOnLumen: ?time .
 }

@@ -1,6 +1,9 @@
 from rdflib import Graph
 
-for i in range(16,33):
+
+QS = {16:'Yann',17:"32",18:"10000"}
+
+for i in range(16,19):
  with open(f'query/QS{i}_sparql.txt', 'r', encoding='utf-8') as f:
     contenu = f.read()
 
@@ -11,8 +14,13 @@ for i in range(16,33):
 
     query = contenu
     for row in g.query(query):
-          print(i)
-          print(row)
-
-
+          response = str(row[0])
+        #   print("longueur row :",len(row))
+        #   print("QS numero :",i)
+        #   print("réponse :", response)
+         
+          if QS[i] in response :
+             print(QS[i],"est OK")
+          else:
+             print(QS[i],"est KO")
 

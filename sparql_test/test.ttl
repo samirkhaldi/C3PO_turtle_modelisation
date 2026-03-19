@@ -27,7 +27,6 @@
 :ReportingPeriod :gotName :xsd:string .
 :ReportingPeriod :month xsd:string .
 
-
 :Employee a rdfs:Class .
 :Employee :gotAnnualProductiveHours xsd:integer .
 :Employee :gotSalaryGross xsd:integer .
