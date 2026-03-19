@@ -1,0 +1,4 @@
+select ?patronalContribution
+where {
+?Yann :gotPatronalContribution ?patronalContribution.
+}

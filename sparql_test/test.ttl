@@ -1,0 +1,137 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+
+:EuropeanProject a rdfs:Class .
+
+:TravelInformation a rdfs:Class .
+:TravelInformation :travelEventName xsd:string .
+:TravelInformation :aboutProject :EuropeanProject .
+:TravelInformation :gotPurpose xsd:string . 
+:TravelInformation :gotPeriod :ReportingPeriod .
+:TravelInformation :startDate xsd:date .
+:TravelInformation :endDate xsd:date .
+:TravelInformation :destination xsd:string .
+:TravelInformation :cost xsd:integer .
+
+:WorkPackage a rdfs:Class . 
+:WorkPackage :about :EuropeanProject .
+:WorkPackage :gotName xsd:string .
+:WorkPackage :personMonthSpent xsd:integer .
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod :about :EuropeanProject .
+:ReportingPeriod :totalPersonnalCost xsd:integer . 
+:ReportingPeriod :gotName :xsd:string .
+:ReportingPeriod :month xsd:string .
+
+
+:Employee a rdfs:Class .
+:Employee :gotAnnualProductiveHours xsd:integer .
+:Employee :gotSalaryGross xsd:integer .
+:Employee :gotPatronalContribution xsd:integer .
+:Employee :workOn :EuropeanProject .
+:Employee :hoursWorkedOnLumen: xsd:integer .
+:Employee :hoursWorkedDuring :ReportingPeriod .
+
+:Employee a rdfs:Class .
+:Employee :gotHourlyRate xsd:integer .
+
+:Yann rdf:type :Employee .
+:Yann :workOn :LUMEN .
+:Yann :gotSalaryGross 2000 .
+:Yann :gotAnnualProductiveHours 1720 .
+:Yann :gotPatronalContribution 200 .
+:Yann :gotHourlyRate: 100 .
+:Yann :hoursWorkedDuring :P1 .
+:Yann :hoursWorkedOnLumen: 32 .
+:Yann :Name "Yann" .
+
+:50cent rdf:type :Employee .
+:50cent :gotHourlyRate: 1000 .
+:50cent :hoursWorkedDuring :P1 .
+:50cent :hoursWorkedOnLumen: 50 .
+:50cent :Name "50cent" .
+
+:Zidane rdf:type :Employee .
+:Zidane :gotHourlyRate: 10000 .
+:Zidane :hoursWorkedDuring :P1 .
+:Zidane :hoursWorkedOnLumen: 10 .
+:Zidane :Name "Zidane" .
+
+:LUMEN rdf:type :EuropeanProject . 
+:LUMEN :id 1 .
+
+
+:Yann rdf:type :Employee .
+:Yann :workOn :LUMEN .
+:Yann :workDuring :RP3 .
+:Yann :hoursWorkedOnLumen: 32 .
+
+:P1 rdf:type :ReportingPeriod .
+:P1 :aboutProject :LUMEN .
+:P1 :gotName "P1" .
+:P1 :month "January" .
+
+:RP1 rdf:type :EuropeanProject .
+:RP1 :aboutProject :LUMEN .
+:RP1 :gotName "RP1" .
+:RP1 :monthDuration 2 .
+
+:RP2 rdf:type :ReportingPeriod .
+:RP2 :aboutProject :LUMEN .
+:RP2 :gotName "RP2" .
+:RP2 :monthDuration 2 .
+
+:RP3 rdf:type :ReportingPeriod .
+:RP3 :gotName "RP3" .
+:RP3 :aboutProject :LUMEN .
+:RP3 :totalPersonnalCost 35000 .
+:RP3 :monthDuration 4 .
+
+:WP2 rdf:type :WorkPackage .
+:WP2 :about :LUMEN .
+:WP2 :gotName "WP2" . 
+:WP2 :personMonthSpent 6 .
+:WP2 :RP :P1 .
+
+:WP3 rdf:type :WorkPackage .
+:WP3 :about :LUMEN .
+:WP3 :gotName "WP3" . 
+:WP3 :personMonthSpent 10 .
+:WP3 :RP :P1 .
+
+:WP4 rdf:type :WorkPackage .
+:WP4 :about :LUMEN .
+:WP4 :gotName "WP4" . 
+:WP4 :personMonthSpent 15 .
+:WP4 :RP :P1 .
+
+:Tasks a rdfs:Class . 
+:Tasks :includeIn :EuropeanProject .
+:Tasks :gotName xsd:string .
+:Tasks :personMonthSpent xsd:integer .
+
+:Task1 rdf:type :WorkPackage .
+:Task1 :includeIn :LUMEN .
+:Task1 :gotName "Task 1.0" . 
+:Task1 :personMonthSpent 6 .
+:Task1 :RP :RP1 .
+
+:Travel_1 rdf:type :TravelInformation .
+:Travel_1 :travelEventName "LUMEN_Meet1" .
+:Travel_1 :gotPeriod :RP2 .
+:Travel_1 :aboutProject :LUMEN . 
+:Travel_1 :destination "Milan" .
+:Travel_1 :cost 1240 .
+:Travel_1 :gotPurpose "SHOPPING" .
+:Travel_1 :startDate "2025-09-23" .
+:Travel_1 :endDate "2025-09-24" .
+
+:Travel_2 rdf:type :TravelInformation .
+:Travel_2 :travelEventName "LUMEN_Meet3" .
+:Travel_2 :aboutProject :LUMEN . 
+:Travel_2 :cost 5400 .
+:Travel_2 :gotPeriod :RP3 .

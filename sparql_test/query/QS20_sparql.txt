@@ -1,0 +1,4 @@
+select ?annualproductivehours
+where { 
+:Yann :gotAnnualProductiveHours ?annualproductivehours .  
+}

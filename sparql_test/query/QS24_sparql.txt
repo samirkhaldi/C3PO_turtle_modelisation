@@ -1,0 +1,4 @@
+select ?WP
+where {
+?WP :about :LUMEN .
+}
