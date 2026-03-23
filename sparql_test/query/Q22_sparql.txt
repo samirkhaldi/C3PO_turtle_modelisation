@@ -4,3 +4,7 @@ where {
 ?TravelInformation :travelEventName "LUMEN_Meet1" .
 ?TravelInformation :gotPurpose ?travelPurpose .
 }
+
+
+
+#QS29

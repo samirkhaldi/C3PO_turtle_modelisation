@@ -4,3 +4,7 @@ where {
 ?TravelInformation :gotPeriod :RP2 .
 ?TravelInformation :travelEventName ?traveleventlist .
 }
+
+
+
+#QS29

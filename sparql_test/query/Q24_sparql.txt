@@ -3,3 +3,6 @@ select ?name {
 ?ReportingPeriod :gotName ?name .
 
 }
+
+
+#QS29
