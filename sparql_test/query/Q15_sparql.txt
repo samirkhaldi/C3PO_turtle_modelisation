@@ -3,3 +3,6 @@ where {
 ?ReportingPeriod :aboutProject :LUMEN .
 ?ReportingPeriod :gotName ?rplist .
 }
+
+
+#QS22

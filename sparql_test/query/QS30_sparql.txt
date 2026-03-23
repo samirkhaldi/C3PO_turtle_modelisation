@@ -1,3 +1,5 @@
-select ?period {
-?period :aboutProject ?LUMEN .
+select ?name {
+?ReportingPeriod :aboutProject :LUMEN .
+?ReportingPeriod :gotName ?name .
+
 }

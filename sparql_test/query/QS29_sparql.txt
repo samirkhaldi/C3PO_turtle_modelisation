@@ -1,6 +1,6 @@
 select ?traveleventlist 
 where {
 ?TravelInformation :aboutProject ?LUMEN .
-?TravelInformation :gotPeriod ?RP1 .
+?TravelInformation :gotPeriod :RP2 .
 ?TravelInformation :travelEventName ?traveleventlist .
 }

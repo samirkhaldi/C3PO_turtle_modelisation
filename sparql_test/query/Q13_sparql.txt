@@ -2,3 +2,5 @@ select ?annualproductivehours
 where { 
 :Yann :gotAnnualProductiveHours ?annualproductivehours .  
 }
+
+#QS20

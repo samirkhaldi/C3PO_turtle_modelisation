@@ -1,4 +1,4 @@
 select ?salarygross 
 where {
-?Yann :gotSalaryGross ?salarygross .
+:Yann :gotSalaryGross ?salarygross .
 }

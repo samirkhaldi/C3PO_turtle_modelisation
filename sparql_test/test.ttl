@@ -38,7 +38,11 @@
 :Employee a rdfs:Class .
 :Employee :gotHourlyRate xsd:integer .
 
+:GreatCompany a rdfs:Class .
+:GreatCompany :have :Employee .
+
 :Yann rdf:type :Employee .
+:Yann :workAt :GreatCompany .
 :Yann :workOn :LUMEN .
 :Yann :gotSalaryGross 2000 .
 :Yann :gotAnnualProductiveHours 1720 .
@@ -49,12 +53,14 @@
 :Yann :Name "Yann" .
 
 :50cent rdf:type :Employee .
+:50cent :workAt :GreatCompany .
 :50cent :gotHourlyRate: 1000 .
 :50cent :hoursWorkedDuring :P1 .
 :50cent :hoursWorkedOnLumen: 50 .
 :50cent :Name "50cent" .
 
 :Zidane rdf:type :Employee .
+:Zidane :workAt :GreatCompany .
 :Zidane :gotHourlyRate: 10000 .
 :Zidane :hoursWorkedDuring :P1 .
 :Zidane :hoursWorkedOnLumen: 10 .
@@ -78,6 +84,8 @@
 :RP1 :aboutProject :LUMEN .
 :RP1 :gotName "RP1" .
 :RP1 :monthDuration 2 .
+:RP1 :totalPersonnalCost 35000 .
+
 
 :RP2 rdf:type :ReportingPeriod .
 :RP2 :aboutProject :LUMEN .
@@ -87,7 +95,7 @@
 :RP3 rdf:type :ReportingPeriod .
 :RP3 :gotName "RP3" .
 :RP3 :aboutProject :LUMEN .
-:RP3 :totalPersonnalCost 35000 .
+:RP3 :totalPersonnalCost 23000 .
 :RP3 :monthDuration 4 .
 
 :WP2 rdf:type :WorkPackage .

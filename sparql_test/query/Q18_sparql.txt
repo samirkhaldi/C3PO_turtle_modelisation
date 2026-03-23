@@ -1,0 +1,8 @@
+select ?travelEventList 
+where {
+?TravelInformation :aboutProject :LUMEN .
+?TravelInformation :travelEventName ?travelEventList .
+
+}
+
+#QS25

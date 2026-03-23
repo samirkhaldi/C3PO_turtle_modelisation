@@ -1,4 +1,5 @@
 select ?list 
 where {
-?list :workAt ?GreatCompany .
+:GreatCompany :have :Employee .
+?Employee :Name ?list .
 }

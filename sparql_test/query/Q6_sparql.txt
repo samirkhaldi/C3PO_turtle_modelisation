@@ -1,0 +1,6 @@
+select ?hourlyrate ?name
+where{
+?name :gotHourlyRate: ?hourlyrate . 
+}
+
+#QC8

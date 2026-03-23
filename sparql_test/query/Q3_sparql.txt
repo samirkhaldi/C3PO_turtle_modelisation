@@ -1,0 +1,12 @@
+select ?cost ?purpose ?destination ?name ?start ?end
+where {
+?TravelInformation :gotPeriod :RP2 .
+?TravelInformation :destination ?destination .
+?TravelInformation :gotPurpose ?purpose .
+?TravelInformation :Cost ?cost .
+?TravelInformation :startDate ?start .
+?TravelInformation :endDate ?end .
+?TravelInformation :travelEventName ?name .
+}
+
+#QC5

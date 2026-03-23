@@ -1,0 +1,35 @@
+RESPONSE EXPECTED :
+
+QS16 : Yann
+QS17 : 32
+QS18 : 10000
+QS19 : 26400
+QS20 : 1720
+QS21 : 2
+QS22 : "P1" "RP1" "RP2" "RP3"
+QS23 :143.33333333333334
+QS24 :"WP2" "WP3" "WP4"
+QS25 : "Lumen_Meet1" "Lumen_Meet3"
+QS26 : 1240
+QS27 : "MILAN"
+QS28 : "SHOPPING"
+QS29 : "LUMEN_Meet1"
+QS30 : "P1" "RP1" "RP2" "RP3"
+QS31 : 2000
+QS32 : 200
+QS33 : "Yann" "50cent" "Zidane"
+
+QS1 : 35000 23000
+QS2 : 6
+QS4 : 23000
+QS5 : "1240"^^<http://www.w3.org/2001/XMLSchema#integer>	"SHOPPING"	"Milan"	"LUMEN_Meet1"	"2025-09-23"	"2025-09-24"
+
+QS6 : 0
+QS7 : 31
+QS8 : "100"^^<http://www.w3.org/2001/XMLSchema#integer>	"Yann"
+"1000"^^<http://www.w3.org/2001/XMLSchema#integer>	"50cent"
+"10000"^^<http://www.w3.org/2001/XMLSchema#integer>	"Zidane"
+
+QS9 : 
+"36240"^^<http://www.w3.org/2001/XMLSchema#integer>
+"24240"^^<http://www.w3.org/2001/XMLSchema#integer>

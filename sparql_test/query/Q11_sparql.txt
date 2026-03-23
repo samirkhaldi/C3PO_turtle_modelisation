@@ -1,0 +1,6 @@
+select ?hourlyrate
+where{
+:Zidane :gotHourlyRate: ?hourlyrate . 
+}
+
+#QS18

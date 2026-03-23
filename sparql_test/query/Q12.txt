@@ -5,3 +5,6 @@ where {
   
   BIND((?salarygross + ?patronalcontribution) * 12 AS ?annualPersonalCost)
 }
+
+
+#QS19

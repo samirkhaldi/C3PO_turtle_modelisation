@@ -1,0 +1,7 @@
+select ?totalcost
+where { 
+?RP1 :aboutProject :LUMEN .
+?RP1 :totalPersonnalCost ?totalcost .
+}
+
+#QC1
