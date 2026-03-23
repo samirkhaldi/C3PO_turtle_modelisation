@@ -1,4 +1,4 @@
-select ?wplist 
+select ?WP
 where {
-?WorkPackage :about ?LUMEN .
+?WP :about :LUMEN .
 }

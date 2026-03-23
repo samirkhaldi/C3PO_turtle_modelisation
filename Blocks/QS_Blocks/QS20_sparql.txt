@@ -1,4 +1,4 @@
-SELECT ?annualproductivehours
-WHERE { 
-  ?yann :gotAnnualProductiveHours ?annualproductivehours .  
+select ?annualproductivehours
+where { 
+:Yann :gotAnnualProductiveHours ?annualproductivehours .  
 }

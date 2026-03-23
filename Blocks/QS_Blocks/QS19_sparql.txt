@@ -1,7 +1,7 @@
-SELECT ?annualPersonalCost
-WHERE { 
-  ?yann :gotSalaryGross ?salarygross .
-  ?yann :gotPatronalContribution ?patronalcontribution .
+select ?annualPersonalCost
+where { 
+?yann :gotSalaryGross ?salarygross .
+?yann :gotPatronalContribution ?patronalcontribution .
   
   BIND((?salarygross + ?patronalcontribution) * 12 AS ?annualPersonalCost)
 }

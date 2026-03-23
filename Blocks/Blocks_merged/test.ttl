@@ -47,8 +47,12 @@
 
 :Employee a rdfs:Class .
 :Employee :gotHourlyRate xsd:integer .
+:Employee :worksOn :EuropeanProject .
 
 :Yann rdf:type :Employee .
+:Yann :gotSalaryGross 2000 .
+:Yann :gotPatronalContribution 200 .
+:Yann :worksOn :LUMEN .
 :Yann :gotHourlyRate: 100 .
 :Yann :hoursWorkedDuring :P1 .
 :Yann :hoursWorkedOnLumen: 32 .
@@ -114,21 +118,17 @@
 :Travel_1 rdf:type :TravelInformation .
 :Travel_1 :travelEventName "LUMEN_Meet1" .
 :Travel_1 :gotPeriod :RP2 .
-:Travel_1 :aboutProject :LUMEN . 
+:Travel_1 :about :LUMEN . 
 :Travel_1 :destination "Milan" .
 :Travel_1 :Cost 1240 .
 :Travel_1 :gotPurpose "SHOPPING" .
 :Travel_1 :startDate "2025-09-23" .
 :Travel_1 :endDate "2025-09-24" .
 
-
-:Travel_2 rdf:type :TravelInformation .
-:Travel_2 :gotPeriod :P1 .
-:Travel_2 :aboutProject :LUMEN . 
-:Travel_2 :Cost 2000 .
-
 :Travel_2 rdf:type :TravelInformation .
 :Travel_2 :travelEventName "LUMEN_Meet3" .
 :Travel_2 :about :LUMEN . 
 :Travel_2 :travelCost 5400 .
 :Travel_2 :gotPeriod :RP3 .
+:Travel_2 :gotPeriod :P1 .
+

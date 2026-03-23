@@ -18,7 +18,7 @@
 :Travel_1 rdf:type :TravelInformation .
 :Travel_1 :travelEventName "LUMEN_Meet2" .
 :Travel_1 :about :LUMEN . 
-:Travel_1 :travelCost 1239 .
+:Travel_1 :cost 1239 .
 
 
 

@@ -1,5 +1,5 @@
 select ?rplist
 where {
-?ReportingPeriod :about ?LUMEN .
+?ReportingPeriod :aboutProject :LUMEN .
 ?ReportingPeriod :gotName ?rplist .
 }

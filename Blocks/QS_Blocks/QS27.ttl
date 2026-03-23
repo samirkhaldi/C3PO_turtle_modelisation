@@ -9,13 +9,13 @@
 
 :TravelInformation a rdfs:Class .
 :TravelInformation :travelEventName xsd:string .
-:TravelInformation :about :EuropeanProject .
+:TravelInformation :aboutProject  :EuropeanProject .
 :TravelInformation :destination xsd:string .
 
 
 :Travel_1 rdf:type :TravelInformation .
 :Travel_1 :travelEventName "LUMEN_Meet2" .
-:Travel_1 :about :LUMEN . 
+:Travel_1 :aboutProject  :LUMEN . 
 :Travel_1 :destination "Milan" .
 
 

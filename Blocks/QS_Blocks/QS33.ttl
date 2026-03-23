@@ -15,7 +15,6 @@
 :50cent rdf:type :Employee .
 :50cent :workAt :GreatCompany .
 
-
 :Zidane rdf:type :Employee .
 :Zidane :workAt :GreatCompany .
 

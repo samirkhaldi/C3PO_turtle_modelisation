@@ -8,8 +8,8 @@ QS = {
     # EXPECT: ('1240', 'SHOPPING', 'Milan', 'LUMEN_Meet1', '2025-09-23', '2025-09-24')
     # REPONSE: set()
     # QS numero 3 est KO
-    4: ("0",),
-    5: ("31",), #Ne fonctionne pas 
+    4: ('0'),
+    5: ('31'), #Ne fonctionne pas 
     #log : EXPECT: 31
     # REPONSE: {'31'}
     # QS numero 5 est KO
@@ -49,14 +49,14 @@ QS = {
 g = Graph()
 g.parse("test.ttl", format="turtle")
 
-for i in range(1, 28):
+for i in range(3, 4):
     with open(f'query/Q{i}_sparql.txt', 'r', encoding='utf-8') as f:
         query = f.read()
 
     responses = set()
     for row in g.query(query):
         for value in row:
-            responses.add(str(value))
+            responses.add(value)
 
     print("EXPECT:", QS[i])
     print("REPONSE:", responses)

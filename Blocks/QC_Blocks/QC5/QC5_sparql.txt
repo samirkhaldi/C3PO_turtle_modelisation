@@ -1,6 +1,7 @@
 select ?cost ?purpose ?destination ?name ?start ?end
 where {
 ?TravelInformation :gotPeriod :RP2 .
+?TravelInformation :aboutProject :LUMEN .
 ?TravelInformation :destination ?destination .
 ?TravelInformation :gotPurpose ?purpose .
 ?TravelInformation :Cost ?cost .

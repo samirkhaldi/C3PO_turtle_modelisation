@@ -5,5 +5,5 @@ prefix : <https://www.turtle_tutorial.com/>
 
 select ?hourlyrate
 where{
-?Yann :gotHourlyRate: ?hourlyrate . 
+:Zidane :gotHourlyRate: ?hourlyrate . 
 }

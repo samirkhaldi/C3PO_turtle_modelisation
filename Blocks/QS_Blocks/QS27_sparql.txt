@@ -1,6 +1,6 @@
 select ?destination
 where {
-?TravelInformation :about ?LUMEN .
-?TravelInformation :travelEventName "LUMEN_Meet2" .
+?TravelInformation :aboutProject ?LUMEN .
+?TravelInformation :travelEventName "LUMEN_Meet1" .
 ?TravelInformation :destination ?destination .
 }
