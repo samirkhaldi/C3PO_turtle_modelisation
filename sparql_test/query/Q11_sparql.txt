@@ -1,6 +1,11 @@
-select ?hourlyrate
-where{
-:Zidane :gotHourlyRate: ?hourlyrate . 
+select ?HourlyRate ?name
+where {
+:Zidane :gotSalaryGross ?salarygross ;
+:Name ?name ;
+:gotPatronalContribution ?patronalcontribution .
+
+BIND(ROUND(((?salarygross + ?patronalcontribution) * 12 / 1720) * 100) / 100 AS ?HourlyRate)
 }
+
 
 #QS18

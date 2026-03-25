@@ -2,3 +2,5 @@ select ?time
 where {
 :Yann :hoursWorkedOnLumen: ?time .
 }
+
+#QS17
