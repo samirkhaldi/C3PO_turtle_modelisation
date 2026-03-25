@@ -3,7 +3,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix : <https://www.turtle_tutorial.com/>.
 
-
 :EuropeanProject a rdfs:Class .
 
 :TravelInformation a rdfs:Class .
@@ -16,6 +15,48 @@
 :TravelInformation :destination xsd:string .
 :TravelInformation :cost xsd:integer .
 
+:TravelInvoice rdf:subClassOf :TravelInformation .
+:TravelInvoice :category xsd:string .
+:TravelInvoice :aboutProject :EuropeanProject .
+:TravelInvoice :duringPeriod :ReportingPeriod .
+:TravelInvoice :beneficiary :Employee .
+:TravelInvoice :hasDate xsd:date .
+:TravelInvoice :amount xsd:integer .
+
+:Travel_1 rdf:type :TravelInformation .
+:Travel_1 :travelEventName "LUMEN_Meet1" .
+:Travel_1 :gotPeriod :RP2 .
+:Travel_1 :aboutProject :LUMEN . 
+:Travel_1 :destination "Milan" .
+:Travel_1 :cost 1240 .
+:Travel_1 :gotPurpose "SHOPPING" .
+:Travel_1 :startDate "2025-09-23" .
+:Travel_1 :endDate "2025-09-24" .
+
+:Travel_2 rdf:type :TravelInformation .
+:Travel_2 :travelEventName "LUMEN_Meet3" .
+:Travel_2 :aboutProject :LUMEN . 
+:Travel_2 :cost 5400 .
+:Travel_2 :gotPeriod :RP3 .
+
+:Fees_1  rdf:type :TravelInvoice .
+:Fees_1 :category "uber receipt" .
+:Fees_1 :aboutProject :LUMEN .
+:Fees_1 :duringPeriod :RP1 .
+:Fees_1 :duringTravel :Travel_1 .
+:Fees_1 :hasDate "2025-09-23" .
+:Fees_1 :beneficiary :Yann .
+:Fees_1 :amount 45 .
+
+:Fees_2 rdf:type :TravelInvoice .
+:Fees_2 :category "restaurant receipt" .
+:Fees_2 :aboutProject :LUMEN .
+:Fees_2 :duringPeriod :RP1 .
+:Fees_1 :duringTravel :Travel_1 .
+:Fees_2 :hasDate "2025-09-23" .
+:Fees_2 :beneficiary :Yann .
+:Fees_2 :amount 23 .
+
 :WorkPackage a rdfs:Class . 
 :WorkPackage :about :EuropeanProject .
 :WorkPackage :gotName xsd:string .
@@ -27,16 +68,13 @@
 :ReportingPeriod :gotName :xsd:string .
 :ReportingPeriod :month xsd:string .
 
-
 :Employee a rdfs:Class .
 :Employee :gotAnnualProductiveHours xsd:integer .
 :Employee :gotSalaryGross xsd:integer .
 :Employee :gotPatronalContribution xsd:integer .
 :Employee :workOn :EuropeanProject .
-:Employee :hoursWorkedOnLumen: xsd:integer .
-:Employee :hoursWorkedDuring :ReportingPeriod .
-
-:Employee a rdfs:Class .
+:Employee :hoursWorkedOnLumen xsd:integer .
+:Employee :hoursWorkedDOnLumenDuring :ReportingPeriod .
 :Employee :gotHourlyRate xsd:integer .
 
 :GreatCompany a rdfs:Class .
@@ -48,33 +86,30 @@
 :Yann :gotSalaryGross 2000 .
 :Yann :gotAnnualProductiveHours 1720 .
 :Yann :gotPatronalContribution 200 .
-:Yann :gotHourlyRate: 100 .
 :Yann :hoursWorkedDuring :P1 .
 :Yann :hoursWorkedOnLumen: 32 .
 :Yann :Name "Yann" .
 
 :50cent rdf:type :Employee .
+:50cent :gotSalaryGross 5000 .
+:50cent :gotPatronalContribution 500 .
+:50cent :gotAnnualProductiveHours 1720 .
 :50cent :workAt :GreatCompany .
-:50cent :gotHourlyRate: 1000 .
 :50cent :hoursWorkedDuring :P1 .
 :50cent :hoursWorkedOnLumen: 50 .
 :50cent :Name "50cent" .
 
 :Zidane rdf:type :Employee .
+:Zidane :gotSalaryGross 8000 .
 :Zidane :workAt :GreatCompany .
-:Zidane :gotHourlyRate: 10000 .
+:Zidane :gotPatronalContribution 500 .
+:Zidane :gotAnnualProductiveHours 1720 .
 :Zidane :hoursWorkedDuring :P1 .
 :Zidane :hoursWorkedOnLumen: 10 .
 :Zidane :Name "Zidane" .
 
 :LUMEN rdf:type :EuropeanProject . 
 :LUMEN :id 1 .
-
-
-:Yann rdf:type :Employee .
-:Yann :workOn :LUMEN .
-:Yann :workDuring :RP3 .
-:Yann :hoursWorkedOnLumen: 32 .
 
 :P1 rdf:type :ReportingPeriod .
 :P1 :aboutProject :LUMEN .
@@ -143,3 +178,5 @@
 :Travel_2 :aboutProject :LUMEN . 
 :Travel_2 :cost 5400 .
 :Travel_2 :gotPeriod :RP3 .
+
+

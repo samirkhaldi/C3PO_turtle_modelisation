@@ -7,7 +7,7 @@ QS = {
     3 : ("1240", "SHOPPING", "Milan", "LUMEN_Meet1", "2025-09-23", "2025-09-24"),
     4: ('0'),
     5: ('31',), 
-    6: ("100", "1000", "10000",),
+    6: ('15.35', 'Yann', '38.37', '50cent', '59.3', 'Zidane'),
     7: ('28400',),
     8: ("Yann",),
     9: ("Yann",),
@@ -44,7 +44,7 @@ for i in range(1, 27):
             responses.add(str(value))
 
     print("EXPECT:", QS[i])
-    print("REPONSE:", responses)
+    print("RESPONSE:", responses)
 
     if all(v in responses for v in QS[i]):
         print(f"QS numero {i} est OK")
