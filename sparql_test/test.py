@@ -29,12 +29,14 @@ QS = {
     25: ("2000",),
     26: ("200",),
     27: ("Yann", "50cent", "Zidane"),
+    28: ('0.2232558139534883720930232558',),
+    29: ('2511.627906976744186046511627',),
 }
 
 g = Graph()
 g.parse("test.ttl", format="turtle")
 
-for i in range(1, 27):
+for i in range(1, 30):
     with open(f'query/Q{i}_sparql.txt', 'r', encoding='utf-8') as f:
         query = f.read()
 
