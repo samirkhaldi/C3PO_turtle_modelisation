@@ -1,0 +1,8 @@
+select ?name {
+?ReportingPeriod :aboutProject :LUMEN .
+?ReportingPeriod :gotName ?name .
+
+}
+
+
+#QS29

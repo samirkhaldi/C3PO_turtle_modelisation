@@ -1,0 +1,8 @@
+select ?w
+where {
+?worker :workDuring ?RP3 .
+?worker :Name ?w
+}
+
+
+#QS3

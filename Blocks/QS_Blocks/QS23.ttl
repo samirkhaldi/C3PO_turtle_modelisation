@@ -1,0 +1,9 @@
+
+
+:Employee a rdfs:Class .
+:Employee :gotAnnualProductiveHours xsd:integer .
+
+:Yann rdf:type :Employee .
+:Yann :gotAnnualProductiveHours 1720 .
+
+

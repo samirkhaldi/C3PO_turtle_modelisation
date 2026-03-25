@@ -1,0 +1,8 @@
+select ?list 
+where {
+?list :workAt ?GreatCompany .
+}select ?list 
+where {
+:GreatCompany :have :Employee .
+?Employee :Name ?list .
+}

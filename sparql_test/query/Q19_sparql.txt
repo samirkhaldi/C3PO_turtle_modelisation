@@ -1,0 +1,9 @@
+select ?travelcost
+where {
+?TravelInformation :aboutProject ?LUMEN .
+?TravelInformation :travelEventName "LUMEN_Meet1" .
+?TravelInformation :cost ?travelcost.
+}
+
+
+#QS26

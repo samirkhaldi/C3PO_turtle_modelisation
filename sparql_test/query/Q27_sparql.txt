@@ -1,0 +1,7 @@
+select ?list 
+where {
+:GreatCompany :have :Employee .
+?Employee :Name ?list .
+}
+
+#QS32

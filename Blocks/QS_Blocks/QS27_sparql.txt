@@ -1,0 +1,6 @@
+select ?destination
+where {
+?TravelInformation :aboutProject ?LUMEN .
+?TravelInformation :travelEventName "LUMEN_Meet1" .
+?TravelInformation :destination ?destination .
+}

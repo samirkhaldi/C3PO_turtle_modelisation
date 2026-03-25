@@ -1,0 +1,23 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+:EuropeanProject :got :WorkPackage .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:WorkPackage a rdfs:Class . 
+:WorkPackage :about :EuropeanProject .
+:WorkPackage :gotName xsd:string .
+
+:WP1 rdf:type :WorkPackage .
+:WP1 :about :LUMEN .
+:WP1 :gotName "WP1" . 
+
+:WP2 rdf:type :WorkPackage .
+:WP2 :about :LUMEN .
+:WP2 :gotName "WP2" . 
+
+

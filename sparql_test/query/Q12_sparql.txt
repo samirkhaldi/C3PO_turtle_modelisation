@@ -1,0 +1,10 @@
+select ?annualPersonalCost
+where { 
+?yann :gotSalaryGross ?salarygross .
+?yann :gotPatronalContribution ?patronalcontribution .
+  
+  BIND((?salarygross + ?patronalcontribution) * 12 AS ?annualPersonalCost)
+}
+
+
+#QS19

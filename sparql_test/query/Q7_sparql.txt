@@ -1,0 +1,12 @@
+select ?budgetspent
+where{ 
+:RP3 :aboutProject :LUMEN ;
+     :totalPersonnalCost ?totalcost .
+  
+?travel :gotPeriod :RP3 ;
+        :cost ?tcost .
+          
+BIND((?totalcost + ?tcost) AS ?budgetspent)
+}
+
+#QC9

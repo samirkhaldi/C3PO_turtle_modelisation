@@ -1,0 +1,6 @@
+select ?pm
+where {
+:Task1 :about ?LUMEN ;
+      :RP :RP1 ;
+      :personMonthSpent ?pm .
+}

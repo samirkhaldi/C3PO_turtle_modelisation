@@ -1,0 +1,6 @@
+select ?patronalContribution
+where {
+?Yann :gotPatronalContribution ?patronalContribution.
+}
+
+#QS31

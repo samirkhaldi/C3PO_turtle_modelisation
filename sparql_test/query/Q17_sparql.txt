@@ -1,0 +1,7 @@
+select ?name
+where {
+?WP :about :LUMEN .
+?WP :gotName ?name .
+}
+
+#QS24

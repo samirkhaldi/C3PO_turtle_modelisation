@@ -1,0 +1,10 @@
+select ?travelPurpose
+where {
+?TravelInformation :aboutProject :LUMEN .
+?TravelInformation :travelEventName "LUMEN_Meet1" .
+?TravelInformation :gotPurpose ?travelPurpose .
+}
+
+
+
+#QS29

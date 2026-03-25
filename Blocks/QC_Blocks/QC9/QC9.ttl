@@ -1,0 +1,45 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod :about :EuropeanProject .
+:ReportingPeriod :totalPersonnalCost xsd:integer . 
+
+:RP3 rdf:type :ReportingPeriod .
+:RP3 :about :LUMEN .
+:RP3 :totalPersonnalCost 35000 .
+
+:EuropeanProject a rdfs:Class .
+
+:LUMEN rdf:type :EuropeanProject . 
+
+:TravelInformation a rdfs:Class .
+:TravelInformation :travelEventName xsd:string .
+:TravelInformation :about :EuropeanProject .
+:TravelInformation :destination xsd:string .
+:TravelInformation :Cost xsd:integer .
+:TravelInformation :gotPeriod :ReportingPeriod .
+
+:Travel_1 rdf:type :TravelInformation .
+:Travel_1 :travelEventName "LUMEN_Meet1" .
+:Travel_1 :about :LUMEN . 
+:Travel_1 :Cost 1239 .
+:Travel_1 :gotPeriod :RP3 .
+
+:Travel_2 rdf:type :TravelInformation .
+:Travel_2 :travelEventName "LUMEN_Meet3" .
+:Travel_2 :about :LUMEN . 
+:Travel_2 :travelCost 5400 .
+:Travel_2 :gotPeriod :RP2 .
+
+

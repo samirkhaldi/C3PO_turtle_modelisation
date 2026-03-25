@@ -55,7 +55,7 @@
 :hasLName ^^xsd:string ;
 :hoursWorkedLumen ^^xsd:integer ;
 :hoursWorkedGraphia ^^xsd:integer ;
-:hasHourlyRate ^^xsd:integer ;
+:hasHourlyRate ^^xsd:integer;
 :received :Payslip;
 :hasAnnualPersonnalCost ^^xsd:integer ;
 :gotAnnualProductiveHours ^^xsd:integer  

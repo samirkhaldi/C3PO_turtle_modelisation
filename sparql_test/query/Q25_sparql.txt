@@ -1,0 +1,7 @@
+select ?salarygross 
+where {
+:Yann :gotSalaryGross ?salarygross .
+}
+
+
+#QS30
