@@ -1,8 +1,9 @@
-select (SUM(?cost) as ?total)
+select (SUM(?amount) as ?total)
 where {
-?TravelInformation :aboutProject ?LUMEN .
-?TravelInformation :gotPeriod :P1 .
-?TravelInformation :Cost ?cost .
+  ?invoice rdf:type :TravelInvoice .
+  ?invoice :aboutProject :LUMEN .
+  ?invoice :duringPeriod :P1 .
+  ?invoice :amount ?amount .
 }
 
 #QC6

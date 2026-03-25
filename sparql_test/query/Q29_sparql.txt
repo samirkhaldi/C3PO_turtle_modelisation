@@ -1,13 +1,14 @@
 select (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
 where {
-?Employee rdf:type :Employee ;
-           :Name ?nomEmploye ;
-           :hoursWorkedOnLumen: ?hoursWorked;
-           :gotSalaryGross ?salarygross ;
-           :gotPatronalContribution ?patronalcontribution ;
-  BIND((?salarygross + ?patronalcontribution) * 12 / 1720 AS ?HourlyRate) .
-  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
+  ?emp rdf:type :Employee ;
+       :workOn :LUMEN ;
+       :hoursWorkedOnLumen ?hoursWorked ;
+       :gotSalaryGross ?salarygross ;
+       :gotPatronalContribution ?patronalcontribution ;
+       :gotAnnualProductiveHours ?annualHours .
 
- }
+  BIND((?salarygross + ?patronalcontribution) * 12 / ?annualHours AS ?HourlyRate) .
+  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
+}
 
  #Data dérivé : Total personnal cost

@@ -4,4 +4,4 @@ where {
   BIND((?EligibleHoursWorked / 1720) * 12 AS ?personMonth)
 }
 
-#Data dérivé : personMonth 
+#Data dérivé : calcul du personMonth 

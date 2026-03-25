@@ -1,12 +1,36 @@
-select ?budgetspent
-where{ 
-:RP3 :aboutProject :LUMEN ;
-     :totalPersonnalCost ?totalcost .
-  
-?travel :gotPeriod :RP3 ;
-        :cost ?tcost .
-          
-BIND((?totalcost + ?tcost) AS ?budgetspent)
+select ?name (?totalPersonnelCost + COALESCE(?totalTravelCost, 0) AS ?totalExpenditure)
+where {
+
+  ?rp a :ReportingPeriod ;
+      :aboutProject :LUMEN ;
+      :gotName ?name .
+  {
+    select ?rp (SUM(?empCost) AS ?totalPersonnelCost)
+    where {
+      ?emp a :Employee ;
+           :workOn :LUMEN ;
+           :WorkedOnLumenDuring ?rp ;
+           :hoursWorkedOnLumen ?hours ;
+           :gotSalaryGross ?salary ;
+           :gotPatronalContribution ?contrib ;
+           :gotAnnualProductiveHours ?annualHours .
+
+      BIND(((?salary + ?contrib) * 12 / ?annualHours) AS ?hourlyRate)
+      BIND((?hourlyRate * ?hours) AS ?empCost)
+    }
+    group by ?rp
+  }
+
+  OPTIONAL {
+    select ?rp (SUM(?amount) AS ?totalTravelCost)
+    where {
+      ?travel :gotPeriod ?rp .
+      ?invoice :duringTravel ?travel ;
+               :amount ?amount .
+    }
+     group by ?rp
+  }
 }
+ORDER BY ?name
 
 #QC9

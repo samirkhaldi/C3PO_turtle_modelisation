@@ -1,7 +1,14 @@
-select ?totalcost
-where { 
-?RP1 :aboutProject :LUMEN .
-?RP1 :totalPersonnalCost ?totalcost .
-}
+select (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
+where {
+  ?Employee rdf:type :Employee ;
+            :Name ?nomEmploye ;
+            :hoursWorkedOnLumen ?hoursWorked ;
+            :gotSalaryGross ?salarygross ;
+            :gotPatronalContribution ?patronalcontribution ;
+            :gotAnnualProductiveHours ?annualHours .
+
+  BIND((?salarygross + ?patronalcontribution) * 12 / ?annualHours AS ?HourlyRate) .
+  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
+ }
 
 #QC1

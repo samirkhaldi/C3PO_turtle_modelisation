@@ -1,9 +1,16 @@
-select (SUM(?pm) AS ?total)
+select ?wp (SUM(?personMonth) AS ?totalPersonMonths)
 where {
-?WorkPackage :about ?LUMEN .
-?WorkPackage :RP :P1 .
-?WorkPackage :personMonthSpent ?pm .
+?wp rdf:type :WorkPackage ;
+      :about :LUMEN ;
+      :RP :P1 .   
+  ?emp rdf:type :Employee ;
+       :workOn :LUMEN ;
+       :worksOnWP ?wp ;
+       :WorkedOnLumenDuring :P1 ;
+       :hoursWorkedOnLumen ?hours .
+  BIND((?hours / 1720) * 12 AS ?personMonth)
 }
+GROUP BY ?wp
 
 
 #QC7

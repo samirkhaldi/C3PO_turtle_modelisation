@@ -1,12 +1,20 @@
-select ?cost ?purpose ?destination ?name ?start ?end
+select ?name ?purpose ?destination ?start ?end 
+       (COALESCE(SUM(?amount), 0) AS ?cost)
 where {
-?TravelInformation :gotPeriod :RP2 .
-?TravelInformation :destination ?destination .
-?TravelInformation :gotPurpose ?purpose .
-?TravelInformation :cost ?cost .
-?TravelInformation :startDate ?start .
-?TravelInformation :endDate ?end .
-?TravelInformation :travelEventName ?name .
+  ?travel a :TravelInformation ;
+          :gotPeriod :P1 ;
+          :travelEventName ?name ;
+          :destination ?destination ;
+          :gotPurpose ?purpose ;
+          :startDate ?start ;
+          :endDate ?end .
+
+  optional {
+    ?invoice :duringTravel ?travel ;
+             :amount ?amount .
+  }
 }
+group by ?travel ?name ?purpose ?destination ?start ?end
+
 
 #QC5
