@@ -74,7 +74,7 @@
 :Employee :gotPatronalContribution xsd:integer .
 :Employee :workOn :EuropeanProject .
 :Employee :hoursWorkedOnLumen xsd:integer .
-:Employee :hoursWorkedDOnLumenDuring :ReportingPeriod .
+:Employee :WorkedOnLumenDuring :ReportingPeriod .
 :Employee :gotHourlyRate xsd:integer .
 :Employee :Name xsd:string .
 
@@ -87,8 +87,8 @@
 :Yann :gotSalaryGross 2000 .
 :Yann :gotAnnualProductiveHours 1720 .
 :Yann :gotPatronalContribution 200 .
-:Yann :hoursWorkedDOnLumenDuring :P1 .
-:Yann :hoursWorkedOnLumen: 32 .
+:Yann :WorkedOnLumenDuring :P1 .
+:Yann :hoursWorkedOnLumen 32 .
 :Yann :Name "Yann" .
 
 :50cent rdf:type :Employee .
@@ -97,7 +97,7 @@
 :50cent :gotPatronalContribution 500 .
 :50cent :gotAnnualProductiveHours 1720 .
 :50cent :workAt :GreatCompany .
-:50cent :hoursWorkedDOnLumenDuring :RP3 .
+:50cent :WorkedOnLumenDuring :RP3 .
 :50cent :hoursWorkedOnLumen: 50 .
 :50cent :Name "50cent" .
 

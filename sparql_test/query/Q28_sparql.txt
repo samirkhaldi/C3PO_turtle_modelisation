@@ -1,0 +1,7 @@
+select ?personMonth
+where {
+:Yann :hoursWorkedOnLumen ?EligibleHoursWorked .
+  BIND((?EligibleHoursWorked / 1720) * 12 AS ?personMonth)
+}
+
+#Data dérivé : personMonth 

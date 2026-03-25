@@ -1,7 +1,7 @@
 select ?name
 where {
   ?employee :workOn :LUMEN .
-  ?employee :hoursWorkedDOnLumenDuring :RP3 .
+  ?employee :WorkedOnLumenDuring  :RP3 .
   ?employee :Name ?name .
 }
 
