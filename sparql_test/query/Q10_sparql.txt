@@ -1,6 +1,6 @@
 select ?time 
 where {
-:Yann :hoursWorkedOnLumen: ?time .
+:Yann :hoursWorkedOnLumen ?time .
 }
 
 #QS17

@@ -1,0 +1,8 @@
+select (SUM(?travelCost) AS ?totalTravelCost)
+where {
+?TravelInvoice :aboutProject :LUMEN ;
+               :amount ?travelCost .
+}
+
+#Data dérivé : Total Travel Cost 
+
