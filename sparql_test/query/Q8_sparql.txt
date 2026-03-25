@@ -1,8 +1,9 @@
-select ?w
+select ?name
 where {
-?worker :workDuring ?RP3 .
-?worker :Name ?w
+  ?employee :workOn :LUMEN .
+  ?employee :hoursWorkedDOnLumenDuring :RP3 .
+  ?employee :Name ?name .
 }
 
 
-#QS3
+#QC3

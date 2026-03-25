@@ -76,6 +76,7 @@
 :Employee :hoursWorkedOnLumen xsd:integer .
 :Employee :hoursWorkedDOnLumenDuring :ReportingPeriod .
 :Employee :gotHourlyRate xsd:integer .
+:Employee :Name xsd:string .
 
 :GreatCompany a rdfs:Class .
 :GreatCompany :have :Employee .
@@ -86,25 +87,27 @@
 :Yann :gotSalaryGross 2000 .
 :Yann :gotAnnualProductiveHours 1720 .
 :Yann :gotPatronalContribution 200 .
-:Yann :hoursWorkedDuring :P1 .
+:Yann :hoursWorkedDOnLumenDuring :P1 .
 :Yann :hoursWorkedOnLumen: 32 .
 :Yann :Name "Yann" .
 
 :50cent rdf:type :Employee .
+:50cent :workOn :LUMEN .
 :50cent :gotSalaryGross 5000 .
 :50cent :gotPatronalContribution 500 .
 :50cent :gotAnnualProductiveHours 1720 .
 :50cent :workAt :GreatCompany .
-:50cent :hoursWorkedDuring :P1 .
+:50cent :hoursWorkedDOnLumenDuring :RP3 .
 :50cent :hoursWorkedOnLumen: 50 .
 :50cent :Name "50cent" .
 
 :Zidane rdf:type :Employee .
+:Zidane :workOn :LUMEN .
 :Zidane :gotSalaryGross 8000 .
 :Zidane :workAt :GreatCompany .
 :Zidane :gotPatronalContribution 500 .
 :Zidane :gotAnnualProductiveHours 1720 .
-:Zidane :hoursWorkedDuring :P1 .
+:Zidane :hoursWorkedDOnLumenDuring :P1 .
 :Zidane :hoursWorkedOnLumen: 10 .
 :Zidane :Name "Zidane" .
 
