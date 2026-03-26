@@ -1,10 +1,9 @@
 from rdflib import Graph
 
-
 QS = {
     1: ('3002.790697674418604651162790',),
     2: ("0.2930232558139534883720930232",),
-    3 : ('SHOPPING', 'Milan', 'LUMEN_Meet1', '2025-09-24', '2025-09-23', '3045'),
+    3 : ('2025-11-20', 'WP2', '3045', 'Stockholm', 'LUMEN_Meet3', '2025-11-30'),
     4: ('3045',),
     5: ('https://www.turtle_tutorial.com/WP4', '0.2232558139534883720930232558',), 
     6: ('15.35', 'Yann', '38.37', '50cent', '59.3', 'Zidane'),
@@ -20,7 +19,7 @@ QS = {
     16: ('143.3333333333333333333333333',),
     17: ('WP4', 'WP2', 'WP3',),
     18: ('LUMEN_Meet1', 'LUMEN_Meet3'),
-    19: ('1240',),
+    19: ('3045',),
     20: ("Milan",),
     21: ('10', '50', '32',),
     22: ("SHOPPING",),
@@ -53,7 +52,7 @@ for i in range(1, 34):
     print("RESPONSE:", responses)
 
     if all(v in responses for v in QS[i]):
-        print(f"QS numero {i} est OK")
+        print(f"Request : {i} ✅")
     else:
-        print(f"QS numero {i} est KO")
+        print(f"Request : {i} ❌")
     print()

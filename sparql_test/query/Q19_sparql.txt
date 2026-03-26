@@ -1,8 +1,8 @@
-select ?travelcost
+select (SUM(?travelcost) AS ?cost)
 where {
-?TravelInformation :aboutProject ?LUMEN .
-?TravelInformation :travelEventName "LUMEN_Meet1" .
-?TravelInformation :cost ?travelcost.
+?TravelInvoice :aboutProject :LUMEN .
+?TravelInvoice :duringTravel :Travel_3 .
+?TravelInvoice :amount ?travelcost .
 }
 
 

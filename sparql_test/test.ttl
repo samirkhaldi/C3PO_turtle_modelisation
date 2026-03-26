@@ -29,41 +29,41 @@
 :Travel_1 :gotPeriod :RP2 .
 :Travel_1 :aboutProject :LUMEN . 
 :Travel_1 :destination "Milan" .
-:Travel_1 :gotPurpose "SHOPPING" .
+:Travel_1 :gotPurpose "WP4 " .
 :Travel_1 :startDate "2025-09-23" .
 :Travel_1 :endDate "2025-09-24" .
 
 :Travel_2 rdf:type :TravelInformation .
-:Travel_2 :travelEventName "LUMEN_Meet3" .
+:Travel_2 :travelEventName "LUMEN_Meet2" .
 :Travel_2 :aboutProject :LUMEN . 
 :Travel_2 :gotPeriod :RP3 .
 
 :Travel_3 rdf:type :TravelInformation .
-:Travel_3 :travelEventName "LUMEN_Meet1" .
+:Travel_3 :travelEventName "LUMEN_Meet3" .
 :Travel_3 :gotPeriod :P1 .
 :Travel_3 :aboutProject :LUMEN . 
-:Travel_3 :destination "Milan" .
-:Travel_3 :gotPurpose "SHOPPING" .
-:Travel_3 :startDate "2025-09-23" .
-:Travel_3 :endDate "2025-09-24" .
+:Travel_3 :destination "Stockholm" .
+:Travel_3 :gotPurpose "WP2" .
+:Travel_3 :startDate "2025-11-20" .
+:Travel_3 :endDate "2025-11-30" .
 
-:Fees_4 rdf:type :TravelInvoice .
-:Fees_4 :category "uber receipt" .
-:Fees_4 :aboutProject :LUMEN .
-:Fees_4 :duringPeriod :P1 .
-:Fees_4 :duringTravel :Travel_3 .
-:Fees_4 :hasDate "2025-09-23" .
-:Fees_4 :beneficiary :Yann .
-:Fees_4 :amount 45 .
+:Fees_1 rdf:type :TravelInvoice .
+:Fees_1 :category "uber receipt" .
+:Fees_1 :aboutProject :LUMEN .
+:Fees_1 :duringPeriod :P1 .
+:Fees_1 :duringTravel :Travel_3 .
+:Fees_1 :hasDate "2025-09-23" .
+:Fees_1 :beneficiary :Yann .
+:Fees_1 :amount 45 .
 
-:Fees_5  rdf:type :TravelInvoice .
-:Fees_5 :category "Club" .
-:Fees_5 :aboutProject :LUMEN .
-:Fees_5 :duringPeriod :P1 .
-:Fees_5 :duringTravel :Travel_3 .
-:Fees_5 :hasDate "2025-09-23" .
-:Fees_5 :beneficiary :Yann .
-:Fees_5 :amount 3000 .
+:Fees_2  rdf:type :TravelInvoice .
+:Fees_2 :category "Club" .
+:Fees_2 :aboutProject :LUMEN .
+:Fees_2 :duringPeriod :P1 .
+:Fees_2 :duringTravel :Travel_3 .
+:Fees_2 :hasDate "2025-09-23" .
+:Fees_2 :beneficiary :Yann .
+:Fees_2 :amount 3000 .
 
 :WorkPackage a rdfs:Class . 
 :WorkPackage :about :EuropeanProject .
