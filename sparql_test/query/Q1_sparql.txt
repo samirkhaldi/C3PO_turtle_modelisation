@@ -1,12 +1,14 @@
 SELECT (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
 WHERE {
   ?Employee rdf:type :Employee ;
+            :gotAnnualProductiveHours ?annualphours ;
             :hoursWorkedOnLumen ?hoursWorked ;
             :gotSalaryGross ?salarygross ;
             :gotPatronalContribution ?patronalcontribution ;
             :WorkedOnLumenDuring :RP3 .
+            
 
-  BIND((?salarygross + ?patronalcontribution) * 12 / 1720 AS ?HourlyRate) .
+  BIND(((?salarygross + ?patronalcontribution) / ?annualphours) * 12 AS ?HourlyRate) .
   BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
 }
 
