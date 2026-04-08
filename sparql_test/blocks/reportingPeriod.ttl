@@ -8,7 +8,6 @@
 :EuropeanProject a rdfs:Class .
 
 :hasReportingPeriod a rdf:Property .
-
 :startDate a rdf:Property .
 :endDate a rdf:Property .
 :duration a rdf:Property .

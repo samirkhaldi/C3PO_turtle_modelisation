@@ -1,6 +1,6 @@
 select (SUM(?amount) as ?total)
 where {
-  ?invoice rdf:type :TravelInvoice .
+  ?invoice rdf:type :Invoice .
   ?invoice :aboutProject :LUMEN .
   ?invoice :duringPeriod :P1 .
   ?invoice :amount ?amount .

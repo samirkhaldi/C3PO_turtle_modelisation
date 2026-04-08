@@ -5,56 +5,6 @@
 
 :EuropeanProject a rdfs:Class .
 
-:TravelInformation a rdfs:Class .
-:TravelInformation :travelEventName xsd:string .
-:TravelInformation :aboutProject :EuropeanProject .
-:TravelInformation :gotPurpose xsd:string . 
-:TravelInformation :gotPeriod :ReportingPeriod .
-:TravelInformation :startDate xsd:date .
-:TravelInformation :endDate xsd:date .
-:TravelInformation :destination xsd:string .
-
-:TravelInvoice rdf:subClassOf :TravelInformation .
-:TravelInvoice :category xsd:string .
-:TravelInvoice :aboutProject :EuropeanProject .
-:TravelInvoice :duringPeriod :ReportingPeriod .
-:TravelInvoice :beneficiary :Employee .
-:TravelInvoice :hasDate xsd:date .
-:TravelInvoice :amount xsd:integer .
-:TravelInvoice :duringTravel :TravelInformation .
-
-:Travel_2 rdf:type :TravelInformation .
-:Travel_2 :travelEventName "LUMEN_Meet2" .
-:Travel_2 :aboutProject :LUMEN . 
-:Travel_2 :gotPeriod :RP3 .
-
-:Travel_3 rdf:type :TravelInformation .
-:Travel_3 :travelEventName "LUMEN_Meet3" .
-:Travel_3 :gotPeriod :P1 .
-:Travel_3 :aboutProject :LUMEN . 
-:Travel_3 :destination "Stockholm" .
-:Travel_3 :gotPurpose "WP2" .
-:Travel_3 :startDate "2025-11-20" .
-:Travel_3 :endDate "2025-11-30" .
-
-:Fees_1 rdf:type :TravelInvoice .
-:Fees_1 :category "uber receipt" .
-:Fees_1 :aboutProject :LUMEN .
-:Fees_1 :duringPeriod :P1 .
-:Fees_1 :duringTravel :Travel_3 .
-:Fees_1 :hasDate "2025-09-23" .
-:Fees_1 :beneficiary :Yann .
-:Fees_1 :amount 45 .
-
-:Fees_2  rdf:type :TravelInvoice .
-:Fees_2 :category "Club" .
-:Fees_2 :aboutProject :LUMEN .
-:Fees_2 :duringPeriod :P1 .
-:Fees_2 :duringTravel :Travel_3 .
-:Fees_2 :hasDate "2025-09-23" .
-:Fees_2 :beneficiary :Yann .
-:Fees_2 :amount 3000 .
-
 :WorkPackage a rdfs:Class . 
 :WorkPackage :about :EuropeanProject .
 :WorkPackage :gotName xsd:string .
@@ -76,6 +26,50 @@
 :Employee :gotHourlyRate xsd:integer .
 :Employee :Name xsd:string .
 :Employee :worksOnWP :WP4 .
+
+# travel entities 
+
+:Travel_1 a :Travel ;
+    :travelEventName "LUMEN_Meet1" ;
+    :aboutProject :LUMEN ;
+    :destination "Milan" ;
+    :gotPurpose "SHOPPING" ;
+    :startDate "2025-09-23"^^xsd:date ;
+    :endDate "2025-09-24"^^xsd:date ;
+    :duringPeriod :ReportingPeriod .
+
+:Travel_2 a :Travel ;
+    :travelEventName "LUMEN_Meet2" ;
+    :aboutProject :LUMEN ;
+    :startDate "2026-09-23"^^xsd:date ;
+    :endDate "2026-09-24"^^xsd:date .
+
+:Travel_3 a :Travel ;
+    :travelEventName "LUMEN_Meet3" ;
+    :aboutProject :LUMEN ;
+    :destination "Stockholm" ;
+    :gotPurpose "WP2" ;
+    :startDate "2027-11-20"^^xsd:date ;
+    :endDate "2027-11-30"^^xsd:date .
+
+#Invoice entities 
+
+:Invoice_1 a :Invoice ;
+    :amount 45.0 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :aboutProject :LUMEN ;
+    :exchangeRate 1.0 .
+
+:Invoice_2 a :Invoice ;
+    :aboutProject :LUMEN ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :beneficiary :Yann ;
+    :exchangeRate 1.0 ;
+    :amount 3000 .
 
 :GreatCompany a rdfs:Class .
 :GreatCompany :have :Employee .
@@ -112,28 +106,43 @@
 :Zidane :Name "Zidane" .
 
 :LUMEN rdf:type :EuropeanProject . 
-:LUMEN :id 1 .
 
-:P1 rdf:type :ReportingPeriod .
-:P1 :aboutProject :LUMEN .
-:P1 :gotName "P1" .
-:P1 :month "January" .
+:LUMEN a :EuropeanProject ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2028-12-31"^^xsd:date ;
+    :duration "P48M"^^xsd:duration ;
+    :hasReportingPeriod :P1, :RP1, :RP2, :RP3 ;
+    :id 1 .
 
-:RP1 rdf:type :ReportingPeriod .
-:RP1 :aboutProject :LUMEN .
-:RP1 :gotName "RP1" .
-:RP1 :monthDuration 2 .
+#reporting period enties
 
+:P1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "P1" ;
+    :duration "P1M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-01-31"^^xsd:date .
 
-:RP2 rdf:type :ReportingPeriod .
-:RP2 :aboutProject :LUMEN .
-:RP2 :gotName "RP2" .
-:RP2 :monthDuration 2 .
+:RP1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP1" ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-12-31"^^xsd:date .
 
-:RP3 rdf:type :ReportingPeriod .
-:RP3 :gotName "RP3" .
-:RP3 :aboutProject :LUMEN .
-:RP3 :monthDuration 4 .
+:RP2 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP2" ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2026-01-01"^^xsd:date ;
+    :endDate "2026-12-31"^^xsd:date .
+
+:RP3 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP3" ;
+    :duration "P24M"^^xsd:duration ;
+    :startDate "2027-01-01"^^xsd:date ;
+    :endDate "2028-12-31"^^xsd:date .
 
 :WP2 rdf:type :WorkPackage .
 :WP2 :about :LUMEN .
@@ -161,16 +170,6 @@
 :Task1 :relatedWP :WP4 .
 :Task1 :RP :P1 .
 
-:Travel_1 rdf:type :TravelInformation .
-:Travel_1 :travelEventName "LUMEN_Meet1" .
-:Travel_1 :gotPeriod :RP2 .
-:Travel_1 :aboutProject :LUMEN . 
-:Travel_1 :destination "Milan" .
-:Travel_1 :gotPurpose "SHOPPING" .
-:Travel_1 :startDate "2025-09-23" .
-:Travel_1 :endDate "2025-09-24" .
 
-:Travel_2 rdf:type :TravelInformation .
-:Travel_2 :travelEventName "LUMEN_Meet3" .
-:Travel_2 :aboutProject :LUMEN . 
-:Travel_2 :gotPeriod :RP3 .
+
+
