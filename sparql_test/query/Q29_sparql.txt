@@ -1,14 +1,8 @@
-select (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
+select (SUM(?travelCost) AS ?totalTravelCost)
 where {
-  ?emp rdf:type :Employee ;
-       :workOn :LUMEN ;
-       :hoursWorkedOnLumen ?hoursWorked ;
-       :gotSalaryGross ?salarygross ;
-       :gotPatronalContribution ?patronalcontribution ;
-       :gotAnnualProductiveHours ?annualHours .
-
-  BIND((?salarygross + ?patronalcontribution) * 12 / ?annualHours AS ?HourlyRate) .
-  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
+?TravelInvoice :aboutProject :LUMEN ;
+               :amount ?travelCost .
 }
 
- #Data dérivé : Total personnal cost
+#Data dérivé : Total Travel Cost 
+

@@ -5,4 +5,4 @@ where {
 }
 
 
-#QS22
+#QS22 : List all RP of projects X.

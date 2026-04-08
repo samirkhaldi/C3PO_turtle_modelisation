@@ -3,4 +3,5 @@ where {
 :Yann :hoursWorkedOnLumen ?time .
 }
 
-#QS17
+#QS17 : How many time Employee Y worked on project X ?
+

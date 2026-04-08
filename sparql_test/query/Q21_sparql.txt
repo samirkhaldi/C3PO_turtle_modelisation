@@ -1,8 +1,9 @@
-select ?time ?name
+select ?travelPurpose
 where {
-?person :hoursWorkedOnLumen ?time .
-?person :Name ?name .
+?TravelInformation :aboutProject :LUMEN .
+?TravelInformation :travelEventName "LUMEN_Meet1" .
+?TravelInformation :gotPurpose ?travelPurpose .
 }
 
 
-#QS28
+#QS28 : What is the travel purpose of travel event Y for project X ?

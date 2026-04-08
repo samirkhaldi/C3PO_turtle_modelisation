@@ -5,4 +5,4 @@ where {
 ?TravelInformation :destination ?destination .
 }
 
-#QS27
+#QS27 : What is the travel destination of travel event Y for project X ?

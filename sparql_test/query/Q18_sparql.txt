@@ -2,7 +2,6 @@ select ?travelEventList
 where {
 ?TravelInformation :aboutProject :LUMEN .
 ?TravelInformation :travelEventName ?travelEventList .
-
 }
 
-#QS25
+#QS25 : What is the list  of travel events for project X ?

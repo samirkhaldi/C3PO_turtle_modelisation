@@ -4,4 +4,4 @@ where {
 BIND((?annualproductivehours) / 12 AS ?monthlyproductivehours)
 }
 
-#QS23
+#QS23 : What is the Monthly Productive hours of the Employee Y ?

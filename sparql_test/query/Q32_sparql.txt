@@ -1,9 +1,11 @@
-select ?HourlyRate
-where { 
+select ?personnelCost
+where {
+:Yann :hoursWorkedOnLumen ?EligibleHoursWorked .
 :Yann :gotSalaryGross ?salarygross ;
       :gotPatronalContribution ?patronalcontribution .
   
-  BIND((?salarygross + ?patronalcontribution) * 12 / 1720 AS ?HourlyRate)
+BIND((?salarygross + ?patronalcontribution) * 12 / 1720 AS ?HourlyRate)
+BIND((?EligibleHoursWorked * ?HourlyRate) AS ?personnelCost)
 }
 
-#Data dérivé : Hourly Rate
+#Data derivée : Calcul du personelCost

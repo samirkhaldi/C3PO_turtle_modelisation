@@ -1,10 +1,8 @@
-select ?travelPurpose
+select ?traveleventlist 
 where {
-?TravelInformation :aboutProject :LUMEN .
-?TravelInformation :travelEventName "LUMEN_Meet1" .
-?TravelInformation :gotPurpose ?travelPurpose .
+?TravelInformation :aboutProject ?LUMEN .
+?TravelInformation :gotPeriod :RP2 .
+?TravelInformation :travelEventName ?traveleventlist .
 }
 
-
-
-#QS29
+#QS29 : List all the travel events in RP Y of project X?

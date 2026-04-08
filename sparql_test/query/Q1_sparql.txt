@@ -12,4 +12,4 @@ WHERE {
   BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
 }
 
-#QC1
+#QC1 : What is the total personnel cost for the project X in RP3 ? 

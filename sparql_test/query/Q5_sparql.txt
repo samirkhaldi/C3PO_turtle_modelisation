@@ -13,4 +13,4 @@ where {
 GROUP BY ?wp
 
 
-#QC7
+#QC7 : How many person-months have been used in each work package during P X  for project  X?

@@ -7,4 +7,4 @@ where {
 BIND(ROUND(((?salarygross + ?patronalcontribution) * 12 / 1720) * 100) / 100 AS ?HourlyRate)
 }
 
-#QC8
+#QC8 : What is the hourly rate for each employee? 

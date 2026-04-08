@@ -1,0 +1,30 @@
+@prefix : <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:ReportingPeriod a rdfs:Class . 
+
+:EuropeanProject a rdfs:Class .
+
+:hasReportingPeriod a rdf:Property .
+
+:startDate a rdf:Property .
+:endDate a rdf:Property .
+:duration a rdf:Property .
+
+:LUMEN rdf:type :EuropeanProject ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2028-12-31"^^xsd:date ;
+    :duration "P36M"^^xsd:duration ;
+    :hasReportingPeriod :P1, :RP1 .
+
+:P1 rdf:type :ReportingPeriod ;
+    :duration "P1M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-01-31"^^xsd:date .
+
+:RP1 rdf:type :ReportingPeriod ;
+     :duration "P18M"^^xsd:duration ;
+     :startDate "2025-01-01"^^xsd:date ;
+     :endDate "2026-06-30"^^xsd:date .

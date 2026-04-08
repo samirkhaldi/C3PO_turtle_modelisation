@@ -7,4 +7,6 @@ where {
 }
 
 
-#QS19 #Data dérivée : annualPersonalCost
+#QS19 : What the Annual Personnel Cost of Employee Y ?
+
+#Data dérivée : annualPersonalCost

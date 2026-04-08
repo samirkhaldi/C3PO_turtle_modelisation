@@ -1,6 +1,7 @@
-select ?patronalContribution
+select ?list 
 where {
-?Yann :gotPatronalContribution ?patronalContribution.
+:GreatCompany :have :Employee .
+?Employee :Name ?list .
 }
 
-#QS31
+#QS33 : List all employee's working for the company.

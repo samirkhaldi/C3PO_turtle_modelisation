@@ -1,7 +1,7 @@
-select ?list 
+select ?personMonth
 where {
-:GreatCompany :have :Employee .
-?Employee :Name ?list .
+:Yann :hoursWorkedOnLumen ?EligibleHoursWorked .
+  BIND((?EligibleHoursWorked / 1720) * 12 AS ?personMonth)
 }
 
-#QS32
+#Data dérivé : calcul du personMonth 

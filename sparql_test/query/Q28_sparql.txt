@@ -1,7 +1,14 @@
-select ?personMonth
+select (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
 where {
-:Yann :hoursWorkedOnLumen ?EligibleHoursWorked .
-  BIND((?EligibleHoursWorked / 1720) * 12 AS ?personMonth)
+  ?emp rdf:type :Employee ;
+       :workOn :LUMEN ;
+       :hoursWorkedOnLumen ?hoursWorked ;
+       :gotSalaryGross ?salarygross ;
+       :gotPatronalContribution ?patronalcontribution ;
+       :gotAnnualProductiveHours ?annualHours .
+
+  BIND((?salarygross + ?patronalcontribution) * 12 / ?annualHours AS ?HourlyRate) .
+  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
 }
 
-#Data dérivé : calcul du personMonth 
+ #Data dérivé : Total personnal cost

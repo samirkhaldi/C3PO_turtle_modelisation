@@ -23,16 +23,6 @@
 :TravelInvoice :amount xsd:integer .
 :TravelInvoice :duringTravel :TravelInformation .
 
-
-:Travel_1 rdf:type :TravelInformation .
-:Travel_1 :travelEventName "LUMEN_Meet1" .
-:Travel_1 :gotPeriod :RP2 .
-:Travel_1 :aboutProject :LUMEN . 
-:Travel_1 :destination "Milan" .
-:Travel_1 :gotPurpose "WP4 " .
-:Travel_1 :startDate "2025-09-23" .
-:Travel_1 :endDate "2025-09-24" .
-
 :Travel_2 rdf:type :TravelInformation .
 :Travel_2 :travelEventName "LUMEN_Meet2" .
 :Travel_2 :aboutProject :LUMEN . 
@@ -72,7 +62,7 @@
 
 :ReportingPeriod a rdfs:Class . 
 :ReportingPeriod :about :EuropeanProject .
-:ReportingPeriod :totalPersonnalCost xsd:integer . 
+:ReportingPeriod :totalPersonnelCost xsd:integer . 
 :ReportingPeriod :gotName :xsd:string .
 :ReportingPeriod :month xsd:string .
 
@@ -165,7 +155,7 @@
 :Tasks :gotName xsd:string .
 :Tasks :personMonthSpent xsd:integer .
 
-:Task1 rdf:type :WorkPackage .
+:Task1 rdf:type :Task .
 :Task1 :includeIn :LUMEN .
 :Task1 :gotName "Task 1.0" . 
 :Task1 :RP :RP1 .

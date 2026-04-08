@@ -4,4 +4,4 @@ where {
 ?WP :gotName ?name .
 }
 
-#QS24
+#QS24 : What is the list of WP on project X ?

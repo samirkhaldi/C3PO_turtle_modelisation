@@ -6,4 +6,4 @@ where {
 }
 
 
-#QS26
+#QS26 : What is the travel cost of travel event Y for project X ?  

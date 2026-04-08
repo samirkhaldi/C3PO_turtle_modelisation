@@ -4,3 +4,5 @@ where {
       :RP :RP1 ;
       :personMonthSpent ?pm .
 }
+
+#QC11

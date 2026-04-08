@@ -17,4 +17,4 @@ where {
 group by ?travel ?name ?purpose ?destination ?start ?end
 
 
-#QC5
+#QC5 : List all travel events in RP X with their date, cost, destination and purpose for the project X.

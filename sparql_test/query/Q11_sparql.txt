@@ -8,4 +8,4 @@ BIND(ROUND(((?salarygross + ?patronalcontribution) * 12 / 1720) * 100) / 100 AS 
 }
 
 
-#QS18
+#QS18 : What the Hourly Rate of Employee Y ?

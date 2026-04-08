@@ -1,0 +1,39 @@
+@prefix : <http://example.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:Travel a rdfs:Class .
+:Invoice a rdfs:Class .
+:TravelInvoice rdfs:subClassOf :Invoice .
+:EuropeanProject a rdfs:Class .
+
+:startDate a rdf:Property .
+:endDate a rdf:Property .
+:duration a rdf:Property .
+:aboutProject a rdf:Property .
+:duringTravel a rdf:Property .
+:hasDate a rdf:Property .
+:travelEventName a rdf:Property .
+:amount a rdf:Property .
+:destination a rdf:Property .
+
+:LUMEN rdf:type :EuropeanProject ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2027-01-01"^^xsd:date ;
+    :duration "P24M"^^xsd:duration .
+
+
+:Travel_1 rdf:type :Travel ;
+    :travelEventName "LUMEN_Meet1" ;
+    :destination "Milan"^^xsd:string ;
+    :startDate "2025-02-30"^^xsd:date ;
+    :endDate "2025-02-31"^^xsd:date ;
+    :aboutProject :LUMEN .
+
+:Invoice_1 rdf:type :Invoice ;
+    :amount "45"^^xsd:decimal ;
+    :hasDate "2025-02-23"^^xsd:date ;
+    :duringTravel :Travel_1 ;
+    :aboutProject :LUMEN ;
+    :exchangeRate "?"^^xsd:decimal .

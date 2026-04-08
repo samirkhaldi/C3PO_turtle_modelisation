@@ -6,4 +6,4 @@ where {
 }
 
 
-#QC3
+#QC3 : Who is working on the project X in RP X ?

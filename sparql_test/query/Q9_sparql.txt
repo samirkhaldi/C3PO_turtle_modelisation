@@ -3,4 +3,5 @@ where{
 ?Employee :workOn :LUMEN .
 ?Employee :Name ?name .
 }
-#QS16
+
+#QS16 : Who is working on project X ?

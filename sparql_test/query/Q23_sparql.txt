@@ -1,10 +1,7 @@
-select ?traveleventlist 
-where {
-?TravelInformation :aboutProject ?LUMEN .
-?TravelInformation :gotPeriod :RP2 .
-?TravelInformation :travelEventName ?traveleventlist .
+select ?name {
+?ReportingPeriod :aboutProject :LUMEN .
+?ReportingPeriod :gotName ?name .
 }
 
 
-
-#QS29
+#QS30 : List all periods of project X ?

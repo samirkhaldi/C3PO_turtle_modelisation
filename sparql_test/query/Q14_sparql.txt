@@ -4,4 +4,4 @@ where {
 }
 
 
-#QS21
+#QS21 : What is the duration of a RP Y on project X ?
