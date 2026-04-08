@@ -8,4 +8,4 @@ BIND((?salarygross + ?patronalcontribution) * 12 / 1720 AS ?HourlyRate)
 BIND((?EligibleHoursWorked * ?HourlyRate) AS ?personnelCost)
 }
 
-#Data derivée : Calcul du personelCost
+#Data derivée : Calcul du personnelCost

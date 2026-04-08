@@ -1,14 +1,9 @@
-select (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
-where {
+select?employeeName ?hours
+where{
   ?emp rdf:type :Employee ;
-       :workOn :LUMEN ;
-       :hoursWorkedOnLumen ?hoursWorked ;
-       :gotSalaryGross ?salarygross ;
-       :gotPatronalContribution ?patronalcontribution ;
-       :gotAnnualProductiveHours ?annualHours .
-
-  BIND((?salarygross + ?patronalcontribution) * 12 / ?annualHours AS ?HourlyRate) .
-  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
+       :Name ?employeeName ;
+       :hoursWorkedOnLumen ?hours ;
+       :WorkedOnLumenDuring :P1 .
 }
 
- #Data dérivé : Total personnal cost
+#QC11 : How many working hours has each employee logged this month? 

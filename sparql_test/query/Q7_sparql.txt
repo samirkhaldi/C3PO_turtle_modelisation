@@ -33,4 +33,4 @@ where {
 }
 ORDER BY ?name
 
-#QC9 : What is the total project expenditure (sum of all costs) per reporting period? 
+#QC7 : What is the total project expenditure (sum of all costs) per reporting period? 

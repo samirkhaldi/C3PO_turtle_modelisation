@@ -6,4 +6,4 @@ where {
   BIND((?salarygross + ?patronalcontribution) * 12 / 1720 AS ?HourlyRate)
 }
 
-#Data dérivé : Hourly Rate
+#Data dérivé : Calcul du Hourly Rate

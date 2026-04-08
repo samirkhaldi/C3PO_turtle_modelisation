@@ -1,7 +1,6 @@
-select ?personMonth
-where {
-:Yann :hoursWorkedOnLumen ?EligibleHoursWorked .
-  BIND((?EligibleHoursWorked / 1720) * 12 AS ?personMonth)
+select ?project
+where{
+  ?project rdf:type :EuropeanProject .
 }
 
-#Data dérivé : calcul du personMonth 
+#QC2 : What is the list of the projects ?

@@ -4,4 +4,4 @@ where {
                :amount ?travelcost .
 }
 
-#Data brut : Travel Cost
+#Data brut : Calcul du Travel Cost

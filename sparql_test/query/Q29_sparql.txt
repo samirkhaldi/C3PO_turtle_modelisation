@@ -1,8 +1,8 @@
-select (SUM(?travelCost) AS ?totalTravelCost)
+select ?pm
 where {
-?TravelInvoice :aboutProject :LUMEN ;
-               :amount ?travelCost .
+:Task1 :about ?LUMEN ;
+      :RP :RP1 ;
+      :personMonthSpent ?pm .
 }
 
-#Data dérivé : Total Travel Cost 
-
+#QC12 : How many person-months were spent in Task Y during RP1 for the project X ?

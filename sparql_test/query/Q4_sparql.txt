@@ -6,4 +6,4 @@ where {
   ?invoice :amount ?amount .
 }
 
-#QC6 : What is the total travel cost for P X for Project X?
+#QC4 : What is the total travel cost for P X for Project X?

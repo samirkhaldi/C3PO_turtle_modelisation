@@ -37,3 +37,12 @@
     :duringTravel :Travel_1 ;
     :aboutProject :LUMEN ;
     :exchangeRate "?"^^xsd:decimal .
+
+
+:Invoice_2  rdf:type :TravelInvoice ;
+            :aboutProject :LUMEN ;
+            :duringPeriod :P1 ;
+            :duringTravel :Travel_3 ;
+            :hasDate "2025-09-23" ;
+            :beneficiary :Yann ;
+            :amount 3000 .
