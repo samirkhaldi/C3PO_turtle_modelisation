@@ -158,7 +158,8 @@
 :Task1 rdf:type :Task .
 :Task1 :includeIn :LUMEN .
 :Task1 :gotName "Task 1.0" . 
-:Task1 :RP :RP1 .
+:Task1 :relatedWP :WP4 .
+:Task1 :RP :P1 .
 
 :Travel_1 rdf:type :TravelInformation .
 :Travel_1 :travelEventName "LUMEN_Meet1" .

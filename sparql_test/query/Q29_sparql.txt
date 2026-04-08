@@ -1,8 +1,19 @@
-select ?pm
+select (SUM((?hours / ?annualHours) * 12) AS ?totalPersonMonths)
 where {
-:Task1 :about ?LUMEN ;
-      :RP :RP1 ;
-      :personMonthSpent ?pm .
+  :Task1 :includeIn :LUMEN ;
+         :RP :P1 ;
+         :relatedWP ?wp .
+
+  ?wp rdf:type :WorkPackage ;
+      :RP :P1 .
+
+  ?emp rdf:type :Employee ;
+       :worksOnWP ?wp ;
+       :WorkedOnLumenDuring :P1 ;
+       :hoursWorkedOnLumen ?hours ;
+       :gotAnnualProductiveHours ?annualHours .
+
+  BIND((?hours / ?annualHours) * 12 AS ?personMonth)
 }
 
 #QC12 : How many person-months were spent in Task Y during RP1 for the project X ?
