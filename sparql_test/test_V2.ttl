@@ -3,6 +3,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix : <https://www.turtle_tutorial.com/>.
 
+:startDate a rdf:Property .
+:endDate a rdf:Property .
+:duration a rdf:Property .
+:aboutProject a rdf:Property .
+:duringTravel a rdf:Property .
+:hasDate a rdf:Property .
+:travelEventName a rdf:Property .
+:amount a rdf:Property .
+:destination a rdf:Property .
+
 :EuropeanProject a rdfs:Class .
 
 :WorkPackage a rdfs:Class . 
@@ -28,6 +38,7 @@
 :Employee :worksOnWP :WP4 .
 
 # travel entities 
+:Travel a rdfs:Class .
 
 :Travel_1 a :Travel ;
     :travelEventName "LUMEN_Meet1" ;
@@ -53,6 +64,8 @@
     :endDate "2027-11-30"^^xsd:date .
 
 #Invoice entities 
+
+:Invoice a rdfs:Class .
 
 :Invoice_1 a :Invoice ;
     :amount 45.0 ;
@@ -105,8 +118,6 @@
 :Zidane :hoursWorkedOnLumen 10 .
 :Zidane :Name "Zidane" .
 
-:LUMEN rdf:type :EuropeanProject . 
-
 :LUMEN a :EuropeanProject ;
     :startDate "2025-01-01"^^xsd:date ;
     :endDate "2028-12-31"^^xsd:date ;
@@ -115,6 +126,9 @@
     :id 1 .
 
 #reporting period enties
+:partOf a rdf:Property ;
+    rdfs:domain :ReportingPeriod ;
+    rdfs:range :ReportingPeriod .
 
 :P1 a :ReportingPeriod ;
     :aboutProject :LUMEN ;
@@ -126,6 +140,7 @@
 :RP1 a :ReportingPeriod ;
     :aboutProject :LUMEN ;
     :gotName "RP1" ;
+    :partOf :P1 ;
     :duration "P12M"^^xsd:duration ;
     :startDate "2025-01-01"^^xsd:date ;
     :endDate "2025-12-31"^^xsd:date .
@@ -159,10 +174,10 @@
 :WP4 :gotName "WP4" . 
 :WP4 :RP :P1 .
 
-:Tasks a rdfs:Class . 
-:Tasks :includeIn :EuropeanProject .
-:Tasks :gotName xsd:string .
-:Tasks :personMonthSpent xsd:integer .
+:Task a rdfs:Class . 
+:Task :includeIn :EuropeanProject .
+:Task :gotName xsd:string .
+:Task :personMonthSpent xsd:integer .
 
 :Task1 rdf:type :Task .
 :Task1 :includeIn :LUMEN .

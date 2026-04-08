@@ -1,27 +1,31 @@
-SELECT ?rpName (SUM(?cost) AS ?totalCost)
+SELECT ?rpName 
+       (SUM(?empCost) + SUM(?invCost) AS ?totalCost)
 WHERE {
   ?rp a :ReportingPeriod ;
-      :gotName ?rpName ;
-      :startDate ?rpStart ;
-      :endDate ?rpEnd .
+      :gotName ?rpName .
 
-  # coût des employés
-  ?employee :WorkedOnLumenDuring ?rp ;
-            :gotSalaryGross ?salary ;
-            :gotPatronalContribution ?pc ;
-            :hoursWorkedOnLumen ?hours ;
-            :gotAnnualProductiveHours ?annualHours .
+  # ---- coût employés ----
+  OPTIONAL {
+    ?employee :WorkedOnLumenDuring ?rp ;
+              :gotSalaryGross ?salary ;
+              :gotPatronalContribution ?pc ;
+              :hoursWorkedOnLumen ?hours ;
+              :gotAnnualProductiveHours ?annualHours .
 
-  BIND ( (?salary + ?pc) * ?hours / ?annualHours AS ?cost )
+    BIND( ((?salary + ?pc) * ?hours) / ?annualHours AS ?empCost )
+  }
 
-  # coût des factures
+  # ---- coût factures ----
   OPTIONAL {
     ?invoice :duringPeriod ?rp ;
              :amount ?amount .
-    BIND (?amount AS ?invoiceCost)
+
+    BIND(?amount AS ?invCost)
   }
 
-  BIND (COALESCE(?cost, 0) + COALESCE(?invoiceCost, 0) AS ?cost)
+  # éviter les valeurs UNBOUND
+  BIND(COALESCE(?empCost, 0) AS ?empCost)
+  BIND(COALESCE(?invCost, 0) AS ?invCost)
 }
 GROUP BY ?rpName
 

@@ -12,18 +12,39 @@
 :endDate a rdf:Property .
 :duration a rdf:Property .
 
-:LUMEN rdf:type :EuropeanProject ;
+:LUMEN a :EuropeanProject ;
     :startDate "2025-01-01"^^xsd:date ;
     :endDate "2028-12-31"^^xsd:date ;
-    :duration "P36M"^^xsd:duration ;
-    :hasReportingPeriod :P1, :RP1 .
+    :duration "P48M"^^xsd:duration ;
+    :hasReportingPeriod :P1, :RP1, :RP2, :RP3 ;
+    :id 1 .
 
-:P1 rdf:type :ReportingPeriod ;
+#reporting period enties
+
+:P1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "P1" ;
     :duration "P1M"^^xsd:duration ;
     :startDate "2025-01-01"^^xsd:date ;
     :endDate "2025-01-31"^^xsd:date .
 
-:RP1 rdf:type :ReportingPeriod ;
-     :duration "P18M"^^xsd:duration ;
-     :startDate "2025-01-01"^^xsd:date ;
-     :endDate "2026-06-30"^^xsd:date .
+:RP1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP1" ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-12-31"^^xsd:date .
+
+:RP2 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP2" ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2026-01-01"^^xsd:date ;
+    :endDate "2026-12-31"^^xsd:date .
+
+:RP3 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP3" ;
+    :duration "P24M"^^xsd:duration ;
+    :startDate "2027-01-01"^^xsd:date ;
+    :endDate "2028-12-31"^^xsd:date .

@@ -5,7 +5,6 @@
 
 :Travel a rdfs:Class .
 :Invoice a rdfs:Class .
-:TravelInvoice rdfs:subClassOf :Invoice .
 :EuropeanProject a rdfs:Class .
 
 :startDate a rdf:Property .
@@ -24,25 +23,46 @@
     :duration "P24M"^^xsd:duration .
 
 
-:Travel_1 rdf:type :Travel ;
+# travel entities 
+
+:Travel_1 a :Travel ;
     :travelEventName "LUMEN_Meet1" ;
-    :destination "Milan"^^xsd:string ;
-    :startDate "2025-02-30"^^xsd:date ;
-    :endDate "2025-02-31"^^xsd:date ;
-    :aboutProject :LUMEN .
-
-:Invoice_1 rdf:type :Invoice ;
-    :amount "45"^^xsd:decimal ;
-    :hasDate "2025-02-23"^^xsd:date ;
-    :duringTravel :Travel_1 ;
     :aboutProject :LUMEN ;
-    :exchangeRate "?"^^xsd:decimal .
+    :destination "Milan" ;
+    :gotPurpose "SHOPPING" ;
+    :startDate "2025-09-23"^^xsd:date ;
+    :endDate "2025-09-24"^^xsd:date ;
+    :duringPeriod :ReportingPeriod .
 
+:Travel_2 a :Travel ;
+    :travelEventName "LUMEN_Meet2" ;
+    :aboutProject :LUMEN ;
+    :startDate "2026-09-23"^^xsd:date ;
+    :endDate "2026-09-24"^^xsd:date .
 
-:Invoice_2  rdf:type :TravelInvoice ;
-            :aboutProject :LUMEN ;
-            :duringPeriod :P1 ;
-            :duringTravel :Travel_3 ;
-            :hasDate "2025-09-23" ;
-            :beneficiary :Yann ;
-            :amount 3000 .
+:Travel_3 a :Travel ;
+    :travelEventName "LUMEN_Meet3" ;
+    :aboutProject :LUMEN ;
+    :destination "Stockholm" ;
+    :gotPurpose "WP2" ;
+    :startDate "2027-11-20"^^xsd:date ;
+    :endDate "2027-11-30"^^xsd:date .
+
+#Invoice entities 
+
+:Invoice_1 a :Invoice ;
+    :amount 45.0 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :aboutProject :LUMEN ;
+    :exchangeRate 1.0 .
+
+:Invoice_2 a :Invoice ;
+    :aboutProject :LUMEN ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :beneficiary :Yann ;
+    :exchangeRate 1.0 ;
+    :amount 3000 .
