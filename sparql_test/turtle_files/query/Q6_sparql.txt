@@ -1,0 +1,10 @@
+select ?HourlyRate ?name
+where {
+?Employee :gotSalaryGross ?salarygross .
+?Employee :hasName ?name ;
+:gotPatronalContribution ?patronalcontribution .
+
+BIND(ROUND(((?salarygross + ?patronalcontribution) * 12 / 1720) * 100) / 100 AS ?HourlyRate)
+}
+
+#QC6 : What is the hourly rate for each employee? 

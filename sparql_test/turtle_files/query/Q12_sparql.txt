@@ -1,0 +1,12 @@
+select ?annualPersonalCost
+where { 
+:Yann :gotSalaryGross ?salarygross ;
+      :gotPatronalContribution ?patronalcontribution .
+  
+  BIND((?salarygross + ?patronalcontribution) * 12 AS ?annualPersonalCost)
+}
+
+
+#QS19 : What the Annual Personnel Cost of Employee Y ?
+
+#Data dérivée : annualPersonalCost

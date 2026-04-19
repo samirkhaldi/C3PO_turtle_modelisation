@@ -1,0 +1,6 @@
+select ?annualproductivehours
+where { 
+:Yann :gotAnnualProductiveHours ?annualproductivehours .  
+}
+
+#QS20 : What the Annual productive hours of the Employee Y ?

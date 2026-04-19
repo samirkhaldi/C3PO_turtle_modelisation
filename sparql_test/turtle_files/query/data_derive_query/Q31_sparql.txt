@@ -1,0 +1,9 @@
+select ?HourlyRate
+where { 
+:Yann :gotSalaryGross ?salarygross ;
+      :gotPatronalContribution ?patronalcontribution .
+  
+  BIND((?salarygross + ?patronalcontribution) * 12 / 1720 AS ?HourlyRate)
+}
+
+#Data dérivé : Calcul du Hourly Rate

@@ -1,0 +1,7 @@
+select ?time 
+where {
+:Yann :hoursWorkedOnLumen ?time .
+}
+
+#QS17 : How many time Employee Y worked on project X ?
+

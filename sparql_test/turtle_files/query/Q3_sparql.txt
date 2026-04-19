@@ -1,0 +1,19 @@
+SELECT ?name ?purpose ?destination ?start ?end
+       (COALESCE(SUM(?amount), 0) AS ?cost)
+WHERE {
+  ?travel a :Travel ;
+          :travelEventName ?name ;
+          :destination ?destination ;
+          :gotPurpose ?purpose ;
+          :startDate ?start ;
+          :endDate ?end .
+
+  OPTIONAL {
+    ?invoice :duringTravel ?travel ;
+             :amount ?amount .
+  }
+}
+GROUP BY ?travel ?name ?purpose ?destination ?start ?end
+
+
+#QC3 : List all travel events in RP X with their date, cost, destination and purpose for the project X.

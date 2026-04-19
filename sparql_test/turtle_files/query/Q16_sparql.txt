@@ -1,0 +1,7 @@
+select ?monthlyproductivehours
+where { 
+:Yann :gotAnnualProductiveHours ?annualproductivehours . 
+BIND((?annualproductivehours) / 12 AS ?monthlyproductivehours)
+}
+
+#QS23 : What is the Monthly Productive hours of the Employee Y ?

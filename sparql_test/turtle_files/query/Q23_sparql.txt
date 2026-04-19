@@ -1,0 +1,8 @@
+SELECT ?name
+WHERE {
+  ?rp a :ReportingPeriod .
+  ?rp :aboutProject :LUMEN .
+  ?rp :gotName ?name .
+}
+
+#QS30 : List all periods of project X ?

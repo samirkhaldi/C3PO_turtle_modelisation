@@ -1,0 +1,7 @@
+select ?patronalContribution
+where {
+:Yann :gotPatronalContribution ?patronalContribution.
+}
+
+#QS32 : What is the amount of the patronal contribution to the salary of employee Y ?
+

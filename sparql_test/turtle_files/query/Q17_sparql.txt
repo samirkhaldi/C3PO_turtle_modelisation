@@ -1,0 +1,7 @@
+select ?name
+where {
+?WP :aboutProject :LUMEN .
+?WP :gotName ?name .
+}
+
+#QS24 : What is the list of WP on project X ?

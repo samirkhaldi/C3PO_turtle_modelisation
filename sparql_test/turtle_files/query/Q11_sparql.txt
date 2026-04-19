@@ -1,0 +1,11 @@
+select ?HourlyRate ?name
+where {
+:Zidane :gotSalaryGross ?salarygross ;
+:hasName ?name ;
+:gotPatronalContribution ?patronalcontribution .
+
+BIND(ROUND(((?salarygross + ?patronalcontribution) * 12 / 1720) * 100) / 100 AS ?HourlyRate)
+}
+
+
+#QS18 : What the Hourly Rate of Employee Y ?

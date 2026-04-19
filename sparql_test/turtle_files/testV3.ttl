@@ -1,0 +1,301 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+#@prefix skos:<http://www.w3.org/2004/02/skos/core>.
+@prefix : <https://www.turtle_tutorial.com/> .
+
+:startDate a rdf:Property .
+:startDate rdfs:domain :ReportingPeriod .
+:startDate rdfs:domain :Travel .
+:startDate rdfs:domain :EuropeanProject .
+:startDate rdfs:range  xsd:date .
+
+:endDate a rdf:Property .
+:endDate rdfs:domain :ReportingPeriod .
+:endDate rdfs:domain :Travel .
+:endDate rdfs:domain :EuropeanProject .
+:endDate rdfs:range  xsd:date .
+
+:duration a rdf:Property .
+:duration rdfs:domain :EuropeanProject .
+:duration rdfs:range  xsd:duration .
+
+:hasDate a rdf:Property .
+:hasDate rdfs:domain :Invoice .
+:hasDate rdfs:range xsd:date .
+
+:travelEventName a rdf:Property .
+:travelEventName rdfs:domain :Travel .
+:travelEventName rdfs:range xsd:string .
+
+:amount a rdf:Property .
+:amount rdfs:domain :Invoice .
+:amount rdfs:range xsd:decimal .
+
+:destination a rdf:Property .
+:destination rdfs:domain :Travel .
+:destination rdfs:range xsd:string .
+
+:gotName a rdf:Property .
+:gotName rdfs:domain :WorkPackage .
+:gotName rdfs:range xsd:string .
+
+:gotAnnualProductiveHours a rdf:Property . 
+:gotAnnualProductiveHours rdfs:domain :Employee .
+:gotAnnualProductiveHours rdfs:range xsd:integer .
+
+:gotSalaryGross a rdf:Property .
+:gotSalaryGross rdfs:domain :Employee .
+:gotSalaryGross rdfs:range xsd:decimal .
+
+:gotPatronalContribution a rdf:Property .
+:gotPatronalContribution rdfs:domain :Employee .
+:gotPatronalContribution rdfs:range xsd:decimal .
+
+:hoursWorkedOnLumen a rdf:Property .
+:hoursWorkedOnLumen rdfs:domain :Employee .
+:hoursWorkedOnLumen rdfs:range xsd:integer .
+
+:gotHourlyRate a rdf:Property . 
+:gotHourlyRate rdfs:domain :Employee .
+:gotHourlyRate rdfs:range xsd:decimal .
+
+:hasName a rdf:Property .
+:hasName rdfs:domain :Employee .
+:hasName rdfs:range xsd:string .
+
+:gotPurpose a rdf:Property .
+:gotPurpose rdfs:domain :Travel .
+:gotPurpose rdfs:range xsd:string .
+
+:gotExchangeRate a rdf:Property .
+:gotExchangeRate rdfs:domain :Travel .
+:gotExchangeRate rdfs:range xsd:decimal .
+
+:personMonthSpent a rdf:Property .
+:personMonthSpent rdfs:domain :WorkPackage .
+:personMonthSpent rdfs:range xsd:integer .
+
+:workOnWP a rdf:Property .
+:workOnWP rdfs:domain :Employee .
+:workOnWP rdfs:range :WorkPackage .
+
+:have a rdf:Property .
+:have rdfs:domain :Company .
+:have rdfs:range :Employee .
+
+:workAt a rdf:Property .
+:workAt rdfs:domain :Employee .
+:workAt rdfs:range :Company .
+
+:workOn a rdf:Property .
+:workOn rdfs:domain :Employee .
+:workOn rdfs:range :EuropeanProject .
+
+:hasReportingPeriod a rdf:Property .
+:hasReportingPeriod rdfs:domain :EuropeanProject .
+:hasReportingPeriod rdfs:range :ReportingPeriod .
+
+:includeIn a rdf:Property .
+:includeIn rdfs:domain :Task .
+:includeIn rdfs:range :EuropeanProject .
+
+:relatedWP a rdf:Property .
+:relatedWP rdfs:domain :Taks .
+:relatedWP rdfs:range :WorkPackage .
+
+:aboutProject a rdf:Property .
+:aboutProject rdfs:domain :WorkPackage .
+:aboutProject rdfs:domain :ReportingPeriod .
+:aboutProject rdfs:domain :Travel .
+:aboutProject rdfs:domain :Invoice .
+:aboutProject rdfs:range :EuropeanProject .
+
+:duringTravel a rdf:Property .
+:duringTravel rdfs:domain :Invoice .
+:duringTravel rdfs:range :Invoice .
+
+:EuropeanProject a rdfs:Class .
+:EuropeanProject rdfs:label "European Project"@en .
+:EuropeanProject rdfs:label "Projet Européen"@fr .
+# :EuropeanProject skos:definition """Un projet européen est est une initiative collaborative financé par des subventions de l’Union Européenne afin de répondre à des enjeux communs pour produire un impact positif concret dans l’Union Européenne"""@fr .
+
+:WorkPackage a rdfs:Class . 
+:WorkPackage rdfs:label "Work Package"@en .
+# :WorkPackage skos:definition """Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen.""" @fr.
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod rdfs:label "Reporting Period"@en.
+# :Reporting skos:definition """ C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet""" @fr .
+
+:Employee a rdfs:Class .
+:Employee rdfs:label "Employee"@en .
+:Employee rdfs:label "Salarié"@fr .
+# :Employée skos:definition "C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet"@fr .
+
+# :Employee :gotAnnualProductiveHours xsd:integer .
+# :Employee :gotSalaryGross xsd:integer .
+# :Employee :gotPatronalContribution xsd:integer .
+# :Employee :workOn :EuropeanProject .
+# :Employee :hoursWorkedOnLumen xsd:integer .
+# :Employee :WorkedOnLumenDuring :ReportingPeriod .
+# :Employee :gotHourlyRate xsd:integer .
+# :Employee :hasName xsd:string .
+# :Employee :worksOnWP :WP4 .
+
+# travel entities 
+:Travel rdf:type rdfs:Class .
+:Travel rdfs:label "Travel"@en .
+:Travel rdfs:label "Voyage"@fr .
+# :Travel rdf:definition "C'est un voyage entrepris par le personnel de l'entreprise dans le cadre d'un projet" @fr .
+
+:Travel_1 rdf:type :Travel ;
+    :travelEventName "LUMEN_Meet1" ;
+    :aboutProject :LUMEN ;
+    :destination "Milan" ;
+    :gotPurpose "SHOPPING" ;
+    :startDate "2025-09-23"^^xsd:date ;
+    :endDate "2025-09-24"^^xsd:date ;
+    :duringPeriod :ReportingPeriod .
+
+:Travel_2 rdf:type :Travel ;
+    :travelEventName "LUMEN_Meet2" ;
+    :aboutProject :LUMEN ;
+    :startDate "2026-09-23"^^xsd:date ;
+    :endDate "2026-09-24"^^xsd:date .
+
+:Travel_3 rdf:type :Travel ;
+    :travelEventName "LUMEN_Meet3" ;
+    :aboutProject :LUMEN ;
+    :destination "Stockholm" ;
+    :gotPurpose "WP2" ;
+    :startDate "2027-11-20"^^xsd:date ;
+    :endDate "2027-11-30"^^xsd:date .
+
+#Invoice entities 
+
+:Invoice rdf:type rdfs:Class .
+:Invoice rdfs:label "Invoice"@en .
+:Invoice rdfs:label "Facture"@fr .
+# :Invoice skos:definition "Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen."@en .
+
+:Invoice_1 rdf:type :Invoice ;
+    :amount 45.0 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :aboutProject :LUMEN ;
+    :gotExchangeRate 1.0 .
+
+:Invoice_2 rdf:type :Invoice ;
+    :aboutProject :LUMEN ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :beneficiary :Yann ;
+    :gotExchangeRate 1.0 ;
+    :amount 3000 .
+
+:Company a rdfs:Class .
+:Company rdfs:label "Company"@en .
+:Company rdfs:label "Entreprise"@fr .
+# :Company skos:definition "C'est une organisation humaine participant à un projet"@fr .
+
+:Yann rdf:type :Employee .
+:Yann :workAt :Company .
+:Yann :workOn :LUMEN .
+:Yann :gotSalaryGross 2000 .
+:Yann :gotAnnualProductiveHours 1720 .
+:Yann :gotPatronalContribution 200 .
+:Yann :WorkedOnLumenDuring :P1 .
+:Yann :hoursWorkedOnLumen 32 .
+:Yann :workOnWP :WP4 .
+:Yann :hasName "Yann" .
+
+:50cent rdf:type :Employee .
+:50cent :workOn :LUMEN .
+:50cent :gotSalaryGross 5000 .
+:50cent :gotPatronalContribution 500 .
+:50cent :gotAnnualProductiveHours 1720 .
+:50cent :workAt :GreatCompany .
+:50cent :WorkedOnLumenDuring :RP3 .
+:50cent :hoursWorkedOnLumen 50 .
+:50cent :hasName "50cent" .
+
+:Zidane rdf:type :Employee .
+:Zidane :workOn :LUMEN .
+:Zidane :gotSalaryGross 8000 .
+:Zidane :workAt :GreatCompany .
+:Zidane :gotPatronalContribution 500 .
+:Zidane :gotAnnualProductiveHours 1720 .
+:Zidane :WorkedOnLumenDuring :P1 .
+:Zidane :hoursWorkedOnLumen 10 .
+:Zidane :hasName "Zidane" .
+
+:LUMEN rdf:type :EuropeanProject ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2027-12-31"^^xsd:date ;
+    :duration "P36M"^^xsd:duration ;
+    :hasReportingPeriod :ReportingPeriod ;
+    :id 1 .
+
+#reporting period enties
+
+# :P1 a :ReportingPeriod ;
+#     :aboutProject :LUMEN ;
+#     :gotName "P1" ;
+#     :duration "P1M"^^xsd:duration ;
+#     :startDate "2025-01-01"^^xsd:date ;
+#     :endDate "2025-01-31"^^xsd:date .
+
+# :RP1 a :ReportingPeriod ;
+#     :aboutProject :LUMEN ;
+#     :gotName "RP1" ;
+#     :partOf :P1 ;
+#     :duration "P12M"^^xsd:duration ;
+#     :startDate "2025-01-01"^^xsd:date ;
+#     :endDate "2025-12-31"^^xsd:date .
+
+# :RP2 a :ReportingPeriod ;
+#     :aboutProject :LUMEN ;
+#     :gotName "RP2" ;
+#     :duration "P12M"^^xsd:duration ;
+#     :startDate "2026-01-01"^^xsd:date ;
+#     :endDate "2026-12-31"^^xsd:date .
+
+# :RP3 a :ReportingPeriod ;
+#     :aboutProject :LUMEN ;
+#     :gotName "RP3" ;
+#     :duration "P24M"^^xsd:duration ;
+#     :startDate "2027-01-01"^^xsd:date ;
+#     :endDate "2028-12-31"^^xsd:date .
+
+:WP2 rdf:type :WorkPackage .
+:WP2 :aboutProject :LUMEN .
+:WP2 :gotName "WP2" . 
+:WP2 :RP :P1 .
+
+:WP3 rdf:type :WorkPackage .
+:WP3 :aboutProject :LUMEN .
+:WP3 :gotName "WP3" . 
+:WP3 :RP :P1 .
+
+:WP4 rdf:type :WorkPackage .
+:WP4 :aboutProject :LUMEN .
+:WP4 :gotName "WP4" . 
+:WP4 :RP :P1 .
+
+:Task a rdfs:Class . 
+:Task :includeIn :EuropeanProject .
+:Task :gotName xsd:string .
+:Task :personMonthSpent xsd:integer .
+
+:Task1 rdf:type :Task .
+:Task1 :includeIn :LUMEN .
+:Task1 :gotName "Task 1.0" . 
+:Task1 :relatedWP :WP4 .
+:Task1 :RP :P1 .
+
+
+
+

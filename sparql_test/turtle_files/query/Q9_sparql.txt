@@ -1,0 +1,7 @@
+select ?name
+where{
+?Employee :workOn :LUMEN .
+?Employee :hasName ?name .
+}
+
+#QS16 : Who is working on project X ?

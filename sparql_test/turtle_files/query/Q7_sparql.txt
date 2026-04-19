@@ -1,0 +1,32 @@
+SELECT ?rpName 
+       (SUM(?empCost) + SUM(?invCost) AS ?totalCost)
+WHERE {
+  ?rp a :ReportingPeriod ;
+      :gotName ?rpName .
+
+  # ---- coût employés ----
+  OPTIONAL {
+    ?employee :WorkedOnLumenDuring ?rp ;
+              :gotSalaryGross ?salary ;
+              :gotPatronalContribution ?pc ;
+              :hoursWorkedOnLumen ?hours ;
+              :gotAnnualProductiveHours ?annualHours .
+
+    BIND( ((?salary + ?pc) * ?hours) / ?annualHours AS ?empCost )
+  }
+
+  # ---- coût factures ----
+  OPTIONAL {
+    ?invoice :duringPeriod ?rp ;
+             :amount ?amount .
+
+    BIND(?amount AS ?invCost)
+  }
+
+  # éviter les valeurs UNBOUND
+  BIND(COALESCE(?empCost, 0) AS ?empCost)
+  BIND(COALESCE(?invCost, 0) AS ?invCost)
+}
+GROUP BY ?rpName
+
+#QC7 : What is the total project expenditure (sum of all costs) per reporting period? 

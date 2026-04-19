@@ -1,0 +1,15 @@
+SELECT (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
+WHERE {
+  ?Employee rdf:type :Employee ;
+            :gotAnnualProductiveHours ?annualphours ;
+            :hoursWorkedOnLumen ?hoursWorked ;
+            :gotSalaryGross ?salarygross ;
+            :gotPatronalContribution ?patronalcontribution ;
+            :WorkedOnLumenDuring :RP3 .
+            
+
+  BIND(((?salarygross + ?patronalcontribution) / ?annualphours) * 12 AS ?HourlyRate) .
+  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
+}
+
+#QC1 : What is the total personnel cost for the project X in RP3 ? 

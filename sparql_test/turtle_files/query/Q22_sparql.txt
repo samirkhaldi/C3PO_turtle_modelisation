@@ -1,0 +1,13 @@
+SELECT ?traveleventlist ?start ?end
+WHERE {
+  ?Travel a :Travel ;
+          :aboutProject :LUMEN ;
+          :travelEventName ?traveleventlist ;
+          :startDate ?start ;
+          :endDate ?end .
+
+}
+
+GROUP BY ?start ?end
+
+#QS29 : List all the travel events in RP Y of project X?

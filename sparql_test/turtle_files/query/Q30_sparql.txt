@@ -1,0 +1,17 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX : <https://www.turtle_tutorial.com/>
+
+construct {
+  ?periodIRI :startDate ?startDate ;
+             :endDate ?endDate .
+}
+where {
+  :LUMEN :startDate ?start .
+
+  values ?i { 0 1 2 3 4 5 }
+
+  BIND(IRI(CONCAT("https://www.turtle_tutorial.com/P", STR(?i + 1))) AS ?periodIRI)
+
+  BIND(?start + (?i * "P6M"^^xsd:duration) AS ?startDate)
+  BIND(?start + ((?i + 1) * "P6M"^^xsd:duration) - "P1D"^^xsd:duration AS ?endDate)
+}

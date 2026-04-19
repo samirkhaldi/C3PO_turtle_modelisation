@@ -1,0 +1,14 @@
+select(SUM(?personMonth) AS ?totalPersonMonths)
+WHERE {
+?wp rdf:type :WorkPackage .
+?wp :gotName "WP4" .
+?wp :about :LUMEN .
+?wp :RP :P1 . 
+?employee rdf:type :Employee .
+?employee :workOn :LUMEN .
+?employee :hoursWorkedOnLumen ?hours .
+?employee :WorkedOnLumenDuring :P1 .
+  BIND((?hours / 1720) * 12 AS ?personMonth)
+}
+
+#QC2 : How many person-months were spent in WP X during RP X for the project X ?

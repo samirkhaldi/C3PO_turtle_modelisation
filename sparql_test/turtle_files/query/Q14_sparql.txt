@@ -1,0 +1,7 @@
+select ?duration
+where {
+:RP2 :duration ?duration .
+}
+
+
+#QS21 : What is the duration of a RP Y on project X ?

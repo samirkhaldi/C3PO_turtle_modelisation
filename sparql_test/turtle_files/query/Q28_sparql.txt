@@ -1,0 +1,9 @@
+select?employeeName ?hours
+where{
+  ?emp rdf:type :Employee ;
+       :hasName ?employeeName ;
+       :hoursWorkedOnLumen ?hours ;
+       :WorkedOnLumenDuring :P1 .
+}
+
+#QC11 : How many working hours has each employee logged this month? 

@@ -1,0 +1,9 @@
+select ?travelPurpose
+where {
+?TravelInformation :aboutProject :LUMEN .
+?TravelInformation :travelEventName "LUMEN_Meet1" .
+?TravelInformation :gotPurpose ?travelPurpose .
+}
+
+
+#QS28 : What is the travel purpose of travel event Y for project X ?

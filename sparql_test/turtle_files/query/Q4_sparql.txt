@@ -1,0 +1,9 @@
+select (SUM(?amount) as ?total)
+where {
+  ?invoice rdf:type :Invoice .
+  ?invoice :aboutProject :LUMEN .
+  ?invoice :duringPeriod :P1 .
+  ?invoice :amount ?amount .
+}
+
+#QC4 : What is the total travel cost for P X for Project X?

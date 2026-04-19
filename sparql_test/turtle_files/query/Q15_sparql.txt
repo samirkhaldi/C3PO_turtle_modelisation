@@ -1,0 +1,8 @@
+select ?rplist
+where {
+?ReportingPeriod :aboutProject :LUMEN .
+?ReportingPeriod :gotName ?rplist .
+}
+
+
+#QS22 : List all RP of projects X.

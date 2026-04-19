@@ -1,0 +1,9 @@
+select (SUM(?travelcost) AS ?cost)
+where {
+?TravelInvoice :aboutProject :LUMEN .
+?TravelInvoice :duringTravel :Travel_3 .
+?TravelInvoice :amount ?travelcost .
+}
+
+
+#QS26 : What is the travel cost of travel event Y for project X ?  

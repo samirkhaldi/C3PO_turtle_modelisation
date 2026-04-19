@@ -1,0 +1,7 @@
+SELECT ?list
+WHERE {
+  ?employee :workAt ?company .
+  ?employee :hasName ?list .
+}
+
+#QS33 : List all employee's working for the company.

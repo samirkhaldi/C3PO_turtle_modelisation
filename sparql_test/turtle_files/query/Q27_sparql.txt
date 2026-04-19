@@ -1,0 +1,6 @@
+select ?project
+where{
+  ?project rdf:type :EuropeanProject .
+}
+
+#QC2 : What is the list of the projects ?

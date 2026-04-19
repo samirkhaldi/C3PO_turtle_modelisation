@@ -1,0 +1,9 @@
+select ?name
+where {
+  ?employee :workOn :LUMEN .
+  ?employee :WorkedOnLumenDuring  :RP3 .
+  ?employee :hasName ?name .
+}
+
+
+#QC8 : Who is working on the project X in RP X ?
