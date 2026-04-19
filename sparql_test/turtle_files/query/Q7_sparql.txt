@@ -1,10 +1,15 @@
-SELECT ?rpName 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
+PREFIX : <https://www.turtle_tutorial.com/> .
+
+select ?rpName 
        (SUM(?empCost) + SUM(?invCost) AS ?totalCost)
-WHERE {
+where {
   ?rp a :ReportingPeriod ;
       :gotName ?rpName .
 
-  # ---- coût employés ----
   OPTIONAL {
     ?employee :WorkedOnLumenDuring ?rp ;
               :gotSalaryGross ?salary ;
@@ -15,7 +20,6 @@ WHERE {
     BIND( ((?salary + ?pc) * ?hours) / ?annualHours AS ?empCost )
   }
 
-  # ---- coût factures ----
   OPTIONAL {
     ?invoice :duringPeriod ?rp ;
              :amount ?amount .
@@ -23,7 +27,6 @@ WHERE {
     BIND(?amount AS ?invCost)
   }
 
-  # éviter les valeurs UNBOUND
   BIND(COALESCE(?empCost, 0) AS ?empCost)
   BIND(COALESCE(?invCost, 0) AS ?invCost)
 }
