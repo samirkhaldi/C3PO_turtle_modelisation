@@ -84,11 +84,11 @@
     :exchangeRate 1.0 ;
     :amount 3000 .
 
-:GreatCompany a rdfs:Class .
-:GreatCompany :have :Employee .
+:Company a rdfs:Class .
+:Company :have :Employee .
 
 :Yann rdf:type :Employee .
-:Yann :workAt :GreatCompany .
+:Yann :workAt :Company .
 :Yann :workOn :LUMEN .
 :Yann :gotSalaryGross 2000 .
 :Yann :gotAnnualProductiveHours 1720 .
@@ -103,7 +103,7 @@
 :50cent :gotSalaryGross 5000 .
 :50cent :gotPatronalContribution 500 .
 :50cent :gotAnnualProductiveHours 1720 .
-:50cent :workAt :GreatCompany .
+:50cent :workAt :Company .
 :50cent :WorkedOnLumenDuring :RP3 .
 :50cent :hoursWorkedOnLumen 50 .
 :50cent :hasName "50cent" .
@@ -111,7 +111,7 @@
 :Zidane rdf:type :Employee .
 :Zidane :workOn :LUMEN .
 :Zidane :gotSalaryGross 8000 .
-:Zidane :workAt :GreatCompany .
+:Zidane :workAt :Company .
 :Zidane :gotPatronalContribution 500 .
 :Zidane :gotAnnualProductiveHours 1720 .
 :Zidane :WorkedOnLumenDuring :P1 .

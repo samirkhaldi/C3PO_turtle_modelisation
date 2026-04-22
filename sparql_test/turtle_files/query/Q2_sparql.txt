@@ -1,20 +1,18 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
-PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
-PREFIX : <https://www.turtle_tutorial.com/> .
+#PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+#PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+#PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+#PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
+#PREFIX : <https://www.turtle_tutorial.com/> .
 
-select(SUM(?personMonth) AS ?totalPersonMonths)
+SELECT (SUM((?h / ?annual) * 12) AS ?pm)
 WHERE {
-?wp rdf:type :WorkPackage .
-?wp :gotName "WP4" .
-?wp :about :LUMEN .
-?wp :RP :P1 . 
-?employee rdf:type :Employee .
-?employee :workOn :LUMEN .
-?employee :hoursWorkedOnLumen ?hours .
-?employee :WorkedOnLumenDuring :P1 .
-  BIND((?hours / 1720) * 12 AS ?personMonth)
-}
+  ?wr a :WorkRecord ;
+      :employee :Yann ;
+      :onProject :LUMEN ;
+      :onWorkPackage :WP2 ;
+      :duringPeriod :P1 ;
+      :hoursWorked ?h .
 
+  :Yann :gotAnnualProductiveHours ?annual .
+}
 #QC2 : How many person-months were spent in WP X during RP X for the project X ?

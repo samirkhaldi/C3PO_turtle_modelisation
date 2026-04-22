@@ -1,11 +1,11 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
-PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
-PREFIX : <https://www.turtle_tutorial.com/> .
+#PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+#PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+#PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+#PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
+#PREFIX : <https://www.turtle_tutorial.com/> .
 
-select ?traveleventlist ?start ?end
-where {
+SELECT ?traveleventlist ?start ?end
+WHERE {
   ?Travel a :Travel ;
           :aboutProject :LUMEN ;
           :travelEventName ?traveleventlist ;
@@ -13,7 +13,6 @@ where {
           :endDate ?end .
 
 }
-
 GROUP BY ?start ?end
 
 #QS29 : List all the travel events in RP Y of project X?

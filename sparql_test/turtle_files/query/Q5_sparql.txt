@@ -1,20 +1,18 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
-PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
-PREFIX : <https://www.turtle_tutorial.com/> .
+#PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+#PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+#PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+#PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
+#PREFIX : <https://www.turtle_tutorial.com/> .
 
-select ?wp (SUM(?personMonth) AS ?totalPersonMonths)
-where {
-?wp rdf:type :WorkPackage ;
-      :about :LUMEN ;
-      :RP :P1 .   
-  ?emp rdf:type :Employee ;
-       :workOn :LUMEN ;
-       :workOnWP ?wp ;
-       :WorkedOnLumenDuring :P1 ;
-       :hoursWorkedOnLumen ?hours .
-  BIND((?hours / 1720) * 12 AS ?personMonth)
+SELECT ?wp (SUM(?pm) AS ?totalPersonMonths)
+WHERE {
+  ?wr a :WorkRecord ;
+      :onProject :LUMEN ;
+      :duringPeriod :P1 ;
+      :onWorkPackage ?wp ;
+      :hoursWorked ?hours .
+
+  BIND((?hours / 1720) * 12 AS ?pm)
 }
 GROUP BY ?wp
 

@@ -1,20 +1,14 @@
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 @prefix skos:<http://www.w3.org/2004/02/skos/core>.
-@prefix : <https://www.turtle_tutorial.com/> .
+@prefix : <https://www.turtle_tutorial.com/>.
 
-:startDate a rdf:Property .
-:startDate rdfs:domain :ReportingPeriod .
-:startDate rdfs:domain :Travel .
-:startDate rdfs:domain :EuropeanProject .
-:startDate rdfs:range  xsd:date .
+:startDate a rdf:Property ;
+    rdfs:range xsd:date .
 
-:endDate a rdf:Property .
-:endDate rdfs:domain :ReportingPeriod .
-:endDate rdfs:domain :Travel .
-:endDate rdfs:domain :EuropeanProject .
-:endDate rdfs:range  xsd:date .
+:endDate a rdf:Property ;
+    rdfs:range xsd:date .
 
 :duration a rdf:Property .
 :duration rdfs:domain :EuropeanProject .
@@ -52,9 +46,6 @@
 :gotPatronalContribution rdfs:domain :Employee .
 :gotPatronalContribution rdfs:range xsd:decimal .
 
-:hoursWorkedOnLumen a rdf:Property .
-:hoursWorkedOnLumen rdfs:domain :Employee .
-:hoursWorkedOnLumen rdfs:range xsd:integer .
 
 :gotHourlyRate a rdf:Property . 
 :gotHourlyRate rdfs:domain :Employee .
@@ -69,16 +60,12 @@
 :gotPurpose rdfs:range xsd:string .
 
 :gotExchangeRate a rdf:Property .
-:gotExchangeRate rdfs:domain :Travel .
+:gotExchangeRate rdfs:domain :Invoice .
 :gotExchangeRate rdfs:range xsd:decimal .
 
 :personMonthSpent a rdf:Property .
 :personMonthSpent rdfs:domain :WorkPackage .
 :personMonthSpent rdfs:range xsd:integer .
-
-:workOnWP a rdf:Property .
-:workOnWP rdfs:domain :Employee .
-:workOnWP rdfs:range :WorkPackage .
 
 :have a rdf:Property .
 :have rdfs:domain :Company .
@@ -88,9 +75,9 @@
 :workAt rdfs:domain :Employee .
 :workAt rdfs:range :Company .
 
-:workOn a rdf:Property .
-:workOn rdfs:domain :Employee .
-:workOn rdfs:range :EuropeanProject .
+:workOnProject a rdf:Property .
+:workOnProject rdfs:domain :Employee .
+:workOnProject rdfs:range :EuropeanProject .
 
 :hasReportingPeriod a rdf:Property .
 :hasReportingPeriod rdfs:domain :EuropeanProject .
@@ -101,19 +88,23 @@
 :includeIn rdfs:range :EuropeanProject .
 
 :relatedWP a rdf:Property .
-:relatedWP rdfs:domain :Taks .
+:relatedWP rdfs:domain :TasK .
 :relatedWP rdfs:range :WorkPackage .
 
 :aboutProject a rdf:Property .
-:aboutProject rdfs:domain :WorkPackage .
-:aboutProject rdfs:domain :ReportingPeriod .
-:aboutProject rdfs:domain :Travel .
-:aboutProject rdfs:domain :Invoice .
 :aboutProject rdfs:range :EuropeanProject .
+
+:WorkPackageAboutProject a rdf:Property .
+:WorkPackageAboutProject rdfs:range :EuropeanProject .
+
 
 :duringTravel a rdf:Property .
 :duringTravel rdfs:domain :Invoice .
-:duringTravel rdfs:range :Invoice .
+:duringTravel rdfs:range :Travel .
+
+:onProject a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range :EuropeanProject .
 
 :EuropeanProject a rdfs:Class .
 :EuropeanProject rdfs:label "European Project"@en .
@@ -133,15 +124,7 @@
 :Employee rdfs:label "Salarié"@fr .
 # :Employée skos:definition "C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet"@fr .
 
-# :Employee :gotAnnualProductiveHours xsd:integer .
-# :Employee :gotSalaryGross xsd:integer .
-# :Employee :gotPatronalContribution xsd:integer .
-# :Employee :workOn :EuropeanProject .
-# :Employee :hoursWorkedOnLumen xsd:integer .
-# :Employee :WorkedOnLumenDuring :ReportingPeriod .
-# :Employee :gotHourlyRate xsd:integer .
-# :Employee :hasName xsd:string .
-# :Employee :worksOnWP :WP4 .
+
 
 # travel entities 
 :Travel rdf:type rdfs:Class .
@@ -156,7 +139,7 @@
     :gotPurpose "SHOPPING" ;
     :startDate "2025-09-23"^^xsd:date ;
     :endDate "2025-09-24"^^xsd:date ;
-    :duringPeriod :ReportingPeriod .
+    :duringPeriod :P1 .
 
 :Travel_2 rdf:type :Travel ;
     :travelEventName "LUMEN_Meet2" ;
@@ -203,33 +186,26 @@
 
 :Yann rdf:type :Employee .
 :Yann :workAt :Company .
-:Yann :workOn :LUMEN .
+:Yann :workOnProject :LUMEN .
 :Yann :gotSalaryGross 2000 .
 :Yann :gotAnnualProductiveHours 1720 .
 :Yann :gotPatronalContribution 200 .
-:Yann :WorkedOnLumenDuring :P1 .
-:Yann :hoursWorkedOnLumen 32 .
-:Yann :workOnWP :WP4 .
 :Yann :hasName "Yann" .
 
 :50cent rdf:type :Employee .
-:50cent :workOn :LUMEN .
+:50cent :workOnProject :LUMEN .
 :50cent :gotSalaryGross 5000 .
 :50cent :gotPatronalContribution 500 .
 :50cent :gotAnnualProductiveHours 1720 .
 :50cent :workAt :GreatCompany .
-:50cent :WorkedOnLumenDuring :RP3 .
-:50cent :hoursWorkedOnLumen 50 .
 :50cent :hasName "50cent" .
 
 :Zidane rdf:type :Employee .
-:Zidane :workOn :LUMEN .
+:Zidane :workOnProject :LUMEN .
 :Zidane :gotSalaryGross 8000 .
 :Zidane :workAt :GreatCompany .
 :Zidane :gotPatronalContribution 500 .
 :Zidane :gotAnnualProductiveHours 1720 .
-:Zidane :WorkedOnLumenDuring :P1 .
-:Zidane :hoursWorkedOnLumen 10 .
 :Zidane :hasName "Zidane" .
 
 :LUMEN rdf:type :EuropeanProject ;
@@ -241,61 +217,87 @@
 
 #reporting period enties
 
-# :P1 a :ReportingPeriod ;
-#     :aboutProject :LUMEN ;
-#     :gotName "P1" ;
-#     :duration "P1M"^^xsd:duration ;
-#     :startDate "2025-01-01"^^xsd:date ;
-#     :endDate "2025-01-31"^^xsd:date .
+:P1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "P1" ;
+    :duration "P1M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-01-31"^^xsd:date .
 
-# :RP1 a :ReportingPeriod ;
-#     :aboutProject :LUMEN ;
-#     :gotName "RP1" ;
-#     :partOf :P1 ;
-#     :duration "P12M"^^xsd:duration ;
-#     :startDate "2025-01-01"^^xsd:date ;
-#     :endDate "2025-12-31"^^xsd:date .
+:RP1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP1" ;
+    :partOf :P1 ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-12-31"^^xsd:date .
 
-# :RP2 a :ReportingPeriod ;
-#     :aboutProject :LUMEN ;
-#     :gotName "RP2" ;
-#     :duration "P12M"^^xsd:duration ;
-#     :startDate "2026-01-01"^^xsd:date ;
-#     :endDate "2026-12-31"^^xsd:date .
+:RP2 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP2" ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2026-01-01"^^xsd:date ;
+    :endDate "2026-12-31"^^xsd:date .
 
-# :RP3 a :ReportingPeriod ;
-#     :aboutProject :LUMEN ;
-#     :gotName "RP3" ;
-#     :duration "P24M"^^xsd:duration ;
-#     :startDate "2027-01-01"^^xsd:date ;
-#     :endDate "2028-12-31"^^xsd:date .
+:RP3 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP3" ;
+    :duration "P24M"^^xsd:duration ;
+    :startDate "2027-01-01"^^xsd:date ;
+    :endDate "2028-12-31"^^xsd:date .
 
 :WP2 rdf:type :WorkPackage .
-:WP2 :aboutProject :LUMEN .
+:WP2 :WorkPackageAboutProject :LUMEN .
 :WP2 :gotName "WP2" . 
-:WP2 :RP :P1 .
+:WP2 :belongsToPeriod :P1 .
 
 :WP3 rdf:type :WorkPackage .
-:WP3 :aboutProject :LUMEN .
+:WP3 :WorkPackageAboutProject :LUMEN .
 :WP3 :gotName "WP3" . 
-:WP3 :RP :P1 .
+:WP3 :belongsToPeriod :P1 .
 
 :WP4 rdf:type :WorkPackage .
-:WP4 :aboutProject :LUMEN .
+:WP4 :WorkPackageAboutProject :LUMEN .
 :WP4 :gotName "WP4" . 
-:WP4 :RP :P1 .
+:WP4 :belongsToPeriod :P1 .
 
 :Task a rdfs:Class . 
-:Task :includeIn :EuropeanProject .
-:Task :gotName xsd:string .
-:Task :personMonthSpent xsd:integer .
 
 :Task1 rdf:type :Task .
 :Task1 :includeIn :LUMEN .
 :Task1 :gotName "Task 1.0" . 
 :Task1 :relatedWP :WP4 .
-:Task1 :RP :P1 .
+:Task1 :belongsToPeriod  :P1 .
 
 
+:WorkRecord a rdfs:Class .
 
+:employee a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range :Employee .
 
+:onWorkPackage a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range :WorkPackage .
+
+:duringPeriod a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range :ReportingPeriod .
+
+:hoursWorked a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range xsd:decimal .
+
+:WR1 a :WorkRecord ;
+    :employee :Yann ;
+    :onProject :LUMEN ;
+    :duringPeriod :P1, :RP1 ;
+    :onWorkPackage :WP2 ;
+    :hoursWorked 50 .
+
+:WR2 a :WorkRecord ;
+    :employee :Zidane ;
+    :onProject :LUMEN ;
+    :duringPeriod :P1, :RP1 ;
+    :onWorkPackage :WP4 ;
+    :hoursWorked 32 .

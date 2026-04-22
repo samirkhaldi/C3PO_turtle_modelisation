@@ -1,21 +1,23 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
-PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
-PREFIX : <https://www.turtle_tutorial.com/> .
+#PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+#PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+#PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+#PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
+#PREFIX : <https://www.turtle_tutorial.com/> .
 
-SELECT (SUM(?Cost) AS ?TotalPersonnalCostForLumen)
+SELECT (SUM(?cost) AS ?TotalPersonnelCostForLumen)
 WHERE {
-  ?Employee rdf:type :Employee ;
-            :gotAnnualProductiveHours ?annualphours ;
-            :hoursWorkedOnLumen ?hoursWorked ;
-            :gotSalaryGross ?salarygross ;
-            :gotPatronalContribution ?patronalcontribution ;
-            :WorkedOnLumenDuring :RP3 .
-            
+  ?wr a :WorkRecord ;
+      :onProject :LUMEN ;
+      :employee ?emp ;
+      :hoursWorked ?hours .
 
-  BIND(((?salarygross + ?patronalcontribution) / ?annualphours) * 12 AS ?HourlyRate) .
-  BIND((?HourlyRate * ?hoursWorked) AS ?Cost) .
+  ?emp :gotAnnualProductiveHours ?annualProductiveHours ;
+       :gotSalaryGross ?salary ;
+       :gotPatronalContribution ?contrib .
+
+  BIND((?salary + ?contrib) * 12 AS ?annualPersonnelCost) 
+  BIND((?annualPersonnelCost / ?annualProductiveHours) AS ?hourlyRate)
+  BIND(?hourlyRate * ?hours AS ?cost)
 }
 
 #QC1 : What is the total personnel cost for the project X in RP3 ? 

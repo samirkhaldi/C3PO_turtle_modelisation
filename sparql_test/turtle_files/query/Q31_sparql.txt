@@ -1,0 +1,13 @@
+SELECT (SUM(?h) as ?totalHours)
+WHERE {
+  ?wr a :WorkRecord ;
+      :employee :Yann ;
+      :onWorkPackage :WP2 ;
+      :duringPeriod :P1 ;
+      :hoursWorked ?h .
+}
+
+
+#Question test :
+
+#Combien d'heures Yann à t'il travaillé durant la periode P1 dans le WorkPackag ?

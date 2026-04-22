@@ -1,19 +1,18 @@
 import sys
-sys.stdout.reconfigure(encoding='utf-8')
 
 from rdflib import Graph
 
 QS = {
-    1: ('1918.604651162790697674418604',),
-    2: ("0.2930232558139534883720930232",),
+    1: ('2665.116279069767441860465117',),
+    2: ('0.3488372093023255813953488372',),
     3 : ('Milan', 'LUMEN_Meet1', '2027-11-20', '2025-09-24', '2027-11-30', '3045.0', '0', 'LUMEN_Meet3', 'Stockholm', 'WP2', 'SHOPPING', '2025-09-23'),
     4: ('3045.0',),
-    5: ('https://www.turtle_tutorial.com/WP4', '0.2232558139534883720930232558',), 
+    5: ('https://www.turtle_tutorial.com/WP2', '0.2232558139534883720930232558', '0.3488372093023255813953488372', 'https://www.turtle_tutorial.com/WP4',), 
     6: ('15.35', 'Yann', '38.37', '50cent', '59.3', 'Zidane'),
-    7: ('RP3', '0', 'RP1', 'P1', '159.8837209302325581395348837', '6270.697674418604651162790698', 'RP2'),
-    8: ('50cent',),
+    7: ('P1', '3267.093023255813953488372093'),
+    8: ('https://www.turtle_tutorial.com/Yann', 'https://www.turtle_tutorial.com/Zidane',),
     9: ('50cent', 'Yann', 'Zidane',),
-    10: ("32",),
+    10: ("50",),
     11: ('Zidane', '59.3'),
     12: ("26400",),
     13: ("1720",),
@@ -41,7 +40,7 @@ QS = {
 g = Graph()
 g.parse("testV3.ttl", format="turtle")
 
-for i in range(1, 30):
+for i in range(1,27 ):
     with open(f'query/Q{i}_sparql.txt', 'r', encoding='utf-8') as f:
         query = f.read()
 

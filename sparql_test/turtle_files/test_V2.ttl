@@ -1,0 +1,347 @@
+@prefix : <https://www.turtle_tutorial.com/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://www.turtle_tutorial.com/> .
+
+<urn:absolute:http//www.example.com/ontologies/C3PO> rdf:type owl:Ontology ;
+                                                      owl:versionIRI <urn:absolute:http//www.example.com/ontologies/C3PO/V2> .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  https://www.turtle_tutorial.com/RP
+:RP rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/WorkedOnLumenDuring
+:WorkedOnLumenDuring rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/aboutProject
+:aboutProject rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/amount
+:amount rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/beneficiary
+:beneficiary rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/destination
+:destination rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/duration
+:duration rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/duringPeriod
+:duringPeriod rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/duringTravel
+:duringTravel rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/endDate
+:endDate rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/exchangeRate
+:exchangeRate rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/gotAnnualProductiveHours
+:gotAnnualProductiveHours rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/gotHourlyRate
+:gotHourlyRate rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/gotName
+:gotName rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/gotPatronalContribution
+:gotPatronalContribution rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/gotPurpose
+:gotPurpose rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/gotSalaryGross
+:gotSalaryGross rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/hasDate
+:hasDate rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/hasName
+:hasName rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/hasReportingPeriod
+:hasReportingPeriod rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/have
+:have rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/hoursWorkedOnLumen
+:hoursWorkedOnLumen rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/id
+:id rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/includeIn
+:includeIn rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/personMonthSpent
+:personMonthSpent rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/relatedWP
+:relatedWP rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/startDate
+:startDate rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/travelEventName
+:travelEventName rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/workAt
+:workAt rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/workOn
+:workOn rdf:type owl:AnnotationProperty .
+
+
+###  https://www.turtle_tutorial.com/worksOnWP
+:worksOnWP rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#duration
+xsd:duration rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://www.turtle_tutorial.com/Company
+:Company rdf:type owl:Class ;
+         :have :Employee .
+
+
+###  https://www.turtle_tutorial.com/Employee
+:Employee rdf:type owl:Class ;
+          :WorkedOnLumenDuring :ReportingPeriod ;
+          :gotAnnualProductiveHours xsd:integer ;
+          :gotHourlyRate xsd:integer ;
+          :gotPatronalContribution xsd:integer ;
+          :gotSalaryGross xsd:integer ;
+          :hasName xsd:string ;
+          :hoursWorkedOnLumen xsd:integer ;
+          :workOn :EuropeanProject ;
+          :worksOnWP :WP4 .
+
+
+###  https://www.turtle_tutorial.com/EuropeanProject
+:EuropeanProject rdf:type owl:Class .
+
+
+###  https://www.turtle_tutorial.com/Invoice
+:Invoice rdf:type owl:Class ;
+         :duringPeriod :ReportingPeriod .
+
+
+###  https://www.turtle_tutorial.com/ReportingPeriod
+:ReportingPeriod rdf:type owl:Class ;
+                 :aboutProject :EuropeanProject .
+
+
+###  https://www.turtle_tutorial.com/Task
+:Task rdf:type owl:Class ;
+      :gotName xsd:string ;
+      :includeIn :EuropeanProject ;
+      :personMonthSpent xsd:integer .
+
+
+###  https://www.turtle_tutorial.com/Travel
+:Travel rdf:type owl:Class .
+
+
+###  https://www.turtle_tutorial.com/WorkPackage
+:WorkPackage rdf:type owl:Class ;
+             :aboutProject :EuropeanProject ;
+             :gotName xsd:string .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://www.turtle_tutorial.com/Invoice_1
+:Invoice_1 rdf:type owl:NamedIndividual ,
+                    :Invoice ;
+           :aboutProject :LUMEN ;
+           :amount 45.0 ;
+           :duringPeriod :P1 ;
+           :duringTravel :Travel_3 ;
+           :exchangeRate 1.0 ;
+           :hasDate "2025-09-23"^^xsd:date .
+
+
+###  https://www.turtle_tutorial.com/Invoice_2
+:Invoice_2 rdf:type owl:NamedIndividual ,
+                    :Invoice ;
+           :aboutProject :LUMEN ;
+           :amount 3000 ;
+           :beneficiary :Yann ;
+           :duringPeriod :P1 ;
+           :duringTravel :Travel_3 ;
+           :exchangeRate 1.0 ;
+           :hasDate "2025-09-23"^^xsd:date .
+
+
+###  https://www.turtle_tutorial.com/LUMEN
+:LUMEN rdf:type owl:NamedIndividual ,
+                :EuropeanProject ;
+       :duration "P36M"^^xsd:duration ;
+       :endDate "2027-12-31"^^xsd:date ;
+       :hasReportingPeriod :ReportingPeriod ;
+       :id 1 ;
+       :startDate "2025-01-01"^^xsd:date .
+
+
+###  https://www.turtle_tutorial.com/Task1
+:Task1 rdf:type owl:NamedIndividual ,
+                :Task ;
+       :RP :P1 ;
+       :gotName "Task 1.0" ;
+       :includeIn :LUMEN ;
+       :relatedWP :WP4 .
+
+
+###  https://www.turtle_tutorial.com/Travel_1
+:Travel_1 rdf:type owl:NamedIndividual ,
+                   :Travel ;
+          :aboutProject :LUMEN ;
+          :destination "Milan" ;
+          :duringPeriod :ReportingPeriod ;
+          :endDate "2025-09-24"^^xsd:date ;
+          :gotPurpose "SHOPPING" ;
+          :startDate "2025-09-23"^^xsd:date ;
+          :travelEventName "LUMEN_Meet1" .
+
+
+###  https://www.turtle_tutorial.com/Travel_2
+:Travel_2 rdf:type owl:NamedIndividual ,
+                   :Travel ;
+          :aboutProject :LUMEN ;
+          :endDate "2026-09-24"^^xsd:date ;
+          :startDate "2026-09-23"^^xsd:date ;
+          :travelEventName "LUMEN_Meet2" .
+
+
+###  https://www.turtle_tutorial.com/Travel_3
+:Travel_3 rdf:type owl:NamedIndividual ,
+                   :Travel ;
+          :aboutProject :LUMEN ;
+          :destination "Stockholm" ;
+          :endDate "2027-11-30"^^xsd:date ;
+          :gotPurpose "WP2" ;
+          :startDate "2027-11-20"^^xsd:date ;
+          :travelEventName "LUMEN_Meet3" .
+
+
+###  https://www.turtle_tutorial.com/WP2
+:WP2 rdf:type owl:NamedIndividual ,
+              :WorkPackage ;
+     :RP :P1 ;
+     :aboutProject :LUMEN ;
+     :gotName "WP2" .
+
+
+###  https://www.turtle_tutorial.com/WP3
+:WP3 rdf:type owl:NamedIndividual ,
+              :WorkPackage ;
+     :RP :P1 ;
+     :aboutProject :LUMEN ;
+     :gotName "WP3" .
+
+
+###  https://www.turtle_tutorial.com/WP4
+:WP4 rdf:type owl:NamedIndividual ,
+              :WorkPackage ;
+     :RP :P1 ;
+     :aboutProject :LUMEN ;
+     :gotName "WP4" .
+
+
+###  https://www.turtle_tutorial.com/Yann
+:Yann rdf:type owl:NamedIndividual ,
+               :Employee ;
+      :WorkedOnLumenDuring :P1 ;
+      :gotAnnualProductiveHours 1720 ;
+      :gotPatronalContribution 200 ;
+      :gotSalaryGross 2000 ;
+      :hasName "Yann" ;
+      :hoursWorkedOnLumen 32 ;
+      :workAt :GreatCompany ;
+      :workOn :LUMEN ;
+      :worksOnWP :WP4 .
+
+
+###  https://www.turtle_tutorial.com/Zidane
+:Zidane rdf:type owl:NamedIndividual ,
+                 :Employee ;
+        :WorkedOnLumenDuring :P1 ;
+        :gotAnnualProductiveHours 1720 ;
+        :gotPatronalContribution 500 ;
+        :gotSalaryGross 8000 ;
+        :hasName "Zidane" ;
+        :hoursWorkedOnLumen 10 ;
+        :workAt :GreatCompany ;
+        :workOn :LUMEN .
+
+
+###  https://www.turtle_tutorial.com/50cent
+<https://www.turtle_tutorial.com/50cent> rdf:type owl:NamedIndividual ,
+                                                  :Employee ;
+                                         :WorkedOnLumenDuring :RP3 ;
+                                         :gotAnnualProductiveHours 1720 ;
+                                         :gotPatronalContribution 500 ;
+                                         :gotSalaryGross 5000 ;
+                                         :hasName "50cent" ;
+                                         :hoursWorkedOnLumen 50 ;
+                                         :workAt :GreatCompany ;
+                                         :workOn :LUMEN .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi

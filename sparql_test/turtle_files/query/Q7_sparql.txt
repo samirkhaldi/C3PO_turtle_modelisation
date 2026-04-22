@@ -1,35 +1,41 @@
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
-PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
-PREFIX : <https://www.turtle_tutorial.com/> .
+#PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+#PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+#PREFIX xsd: <http://www.w3.org/2001/XMLSchema#> .
+#PREFIX skos:<http://www.w3.org/2004/02/skos/core>.
+#PREFIX : <https://www.turtle_tutorial.com/> .
 
-select ?rpName 
-       (SUM(?empCost) + SUM(?invCost) AS ?totalCost)
-where {
+SELECT ?rpName (?empTotal + ?invTotal AS ?totalCost)
+WHERE {
+
   ?rp a :ReportingPeriod ;
       :gotName ?rpName .
 
-  OPTIONAL {
-    ?employee :WorkedOnLumenDuring ?rp ;
-              :gotSalaryGross ?salary ;
-              :gotPatronalContribution ?pc ;
-              :hoursWorkedOnLumen ?hours ;
-              :gotAnnualProductiveHours ?annualHours .
+  {
+    SELECT ?rp (SUM(?empCost) AS ?empTotal)
+    WHERE {
+      ?wr a :WorkRecord ;
+          :duringPeriod ?rp ;
+          :employee ?emp ;
+          :hoursWorked ?hours .
 
-    BIND( ((?salary + ?pc) * ?hours) / ?annualHours AS ?empCost )
+      ?emp :gotSalaryGross ?salary ;
+           :gotPatronalContribution ?pc ;
+           :gotAnnualProductiveHours ?annual .
+
+      BIND(((?salary + ?pc) / ?annual) * ?hours AS ?empCost)
+    }
+    GROUP BY ?rp
   }
 
-  OPTIONAL {
-    ?invoice :duringPeriod ?rp ;
-             :amount ?amount .
-
-    BIND(?amount AS ?invCost)
+  {
+    SELECT ?rp (SUM(?amount) AS ?invTotal)
+    WHERE {
+      ?invoice :duringPeriod ?rp ;
+               :amount ?amount .
+    }
+    GROUP BY ?rp
   }
 
-  BIND(COALESCE(?empCost, 0) AS ?empCost)
-  BIND(COALESCE(?invCost, 0) AS ?invCost)
 }
-GROUP BY ?rpName
 
 #QC7 : What is the total project expenditure (sum of all costs) per reporting period? 
