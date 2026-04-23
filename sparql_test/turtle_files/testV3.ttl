@@ -109,20 +109,20 @@
 :EuropeanProject a rdfs:Class .
 :EuropeanProject rdfs:label "European Project"@en .
 :EuropeanProject rdfs:label "Projet Européen"@fr .
-# :EuropeanProject skos:definition """Un projet européen est est une initiative collaborative financé par des subventions de l’Union Européenne afin de répondre à des enjeux communs pour produire un impact positif concret dans l’Union Européenne"""@fr .
+:EuropeanProject skos:definition """Un projet européen est est une initiative collaborative financé par des subventions de l’Union Européenne afin de répondre à des enjeux communs pour produire un impact positif concret dans l’Union Européenne"""@fr .
 
 :WorkPackage a rdfs:Class . 
 :WorkPackage rdfs:label "Work Package"@en .
-# :WorkPackage skos:definition """Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen.""" @fr.
+:WorkPackage skos:definition """Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen.""" @fr.
 
 :ReportingPeriod a rdfs:Class . 
 :ReportingPeriod rdfs:label "Reporting Period"@en.
-# :Reporting skos:definition """ C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet""" @fr .
+:Reporting skos:definition """ C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet""" @fr .
 
 :Employee a rdfs:Class .
 :Employee rdfs:label "Employee"@en .
 :Employee rdfs:label "Salarié"@fr .
-# :Employée skos:definition "C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet"@fr .
+:Employée skos:definition "C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet"@fr .
 
 
 
@@ -130,7 +130,7 @@
 :Travel rdf:type rdfs:Class .
 :Travel rdfs:label "Travel"@en .
 :Travel rdfs:label "Voyage"@fr .
-# :Travel rdf:definition "C'est un voyage entrepris par le personnel de l'entreprise dans le cadre d'un projet" @fr .
+:Travel rdf:definition "C'est un voyage entrepris par le personnel de l'entreprise dans le cadre d'un projet" @fr .
 
 :Travel_1 rdf:type :Travel ;
     :travelEventName "LUMEN_Meet1" ;
@@ -160,7 +160,7 @@
 :Invoice rdf:type rdfs:Class .
 :Invoice rdfs:label "Invoice"@en .
 :Invoice rdfs:label "Facture"@fr .
-# :Invoice skos:definition "Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen."@en .
+:Invoice skos:definition "Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen."@en .
 
 :Invoice_1 rdf:type :Invoice ;
     :amount 45.0 ;
@@ -182,7 +182,7 @@
 :Company a rdfs:Class .
 :Company rdfs:label "Company"@en .
 :Company rdfs:label "Entreprise"@fr .
-# :Company skos:definition "C'est une organisation humaine participant à un projet"@fr .
+:Company skos:definition "C'est une organisation humaine participant à un projet"@fr .
 
 :Yann rdf:type :Employee .
 :Yann :workAt :Company .
@@ -268,7 +268,6 @@
 :Task1 :gotName "Task 1.0" . 
 :Task1 :relatedWP :WP4 .
 :Task1 :belongsToPeriod  :P1 .
-
 
 :WorkRecord a rdfs:Class .
 
