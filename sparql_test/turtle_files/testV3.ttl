@@ -1,7 +1,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
-@prefix skos:<http://www.w3.org/2004/02/skos/core>.
+@prefix skos:<http://www.w3.org/2004/02/skos/core#>.
 @prefix : <https://www.turtle_tutorial.com/>.
 
 :startDate a rdf:Property ;
@@ -113,11 +113,11 @@
 
 :WorkPackage a rdfs:Class . 
 :WorkPackage rdfs:label "Work Package"@en .
-:WorkPackage skos:definition """Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen.""" @fr.
+:WorkPackage skos:definition """Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen."""@fr .
 
 :ReportingPeriod a rdfs:Class . 
 :ReportingPeriod rdfs:label "Reporting Period"@en.
-:Reporting skos:definition """ C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet""" @fr .
+:Reporting skos:definition """ C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet"""@fr .
 
 :Employee a rdfs:Class .
 :Employee rdfs:label "Employee"@en .
@@ -130,7 +130,7 @@
 :Travel rdf:type rdfs:Class .
 :Travel rdfs:label "Travel"@en .
 :Travel rdfs:label "Voyage"@fr .
-:Travel rdf:definition "C'est un voyage entrepris par le personnel de l'entreprise dans le cadre d'un projet" @fr .
+:Travel rdf:definition "C'est un voyage entrepris par le personnel de l'entreprise dans le cadre d'un projet"@fr .
 
 :Travel_1 rdf:type :Travel ;
     :travelEventName "LUMEN_Meet1" ;
@@ -246,9 +246,9 @@
     :startDate "2027-01-01"^^xsd:date ;
     :endDate "2028-12-31"^^xsd:date .
 
-:WP2 rdf:type :WorkPackage .
-:WP2 :WorkPackageAboutProject :LUMEN .
-:WP2 :gotName "WP2" . 
+:WP1 rdf:type :WorkPackage .
+:WP1 :WorkPackageAboutProject :LUMEN .
+:WP1 :gotName "WP2" . 
 :WP2 :belongsToPeriod :P1 .
 
 :WP3 rdf:type :WorkPackage .

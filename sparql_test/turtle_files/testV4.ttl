@@ -1,0 +1,823 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix skos:<http://www.w3.org/2004/02/skos/core#>.
+@prefix : <https://www.turtle_tutorial.com/>.
+
+:startDate a rdf:Property ;
+    rdfs:range xsd:date .
+
+:endDate a rdf:Property ;
+    rdfs:range xsd:date .
+
+:duration a rdf:Property .
+:duration rdfs:domain :EuropeanProject .
+:duration rdfs:range  xsd:duration .
+
+:hasDate a rdf:Property .
+:hasDate rdfs:domain :Invoice .
+:hasDate rdfs:range xsd:date .
+
+:travelEventName a rdf:Property .
+:travelEventName rdfs:domain :Travel .
+:travelEventName rdfs:range xsd:string .
+
+:amount a rdf:Property .
+:amount rdfs:domain :Invoice .
+:amount rdfs:range xsd:decimal .
+
+:destination a rdf:Property .
+:destination rdfs:domain :Travel .
+:destination rdfs:range xsd:string .
+
+:gotName a rdf:Property .
+:gotName rdfs:domain :WorkPackage .
+:gotName rdfs:range xsd:string .
+
+:gotTitle a rdf:Property .
+:gotTitle rdfs:domain :WorkPackage .
+:gotTitle rdfs:range xsd:string .
+
+:gotAnnualProductiveHours a rdf:Property . 
+:gotAnnualProductiveHours rdfs:domain :Employee .
+:gotAnnualProductiveHours rdfs:range xsd:integer .
+
+:gotSalaryGross a rdf:Property .
+:gotSalaryGross rdfs:domain :EmployeeRecord .
+
+
+:gotPatronalContribution a rdf:Property .
+:gotPatronalContribution rdfs:domain :EmployeeRecord .
+
+
+:gotHourlyRate a rdf:Property . 
+:gotHourlyRate rdfs:domain :Employee .
+:gotHourlyRate rdfs:range xsd:decimal .
+
+:hasName a rdf:Property .
+:hasName rdfs:domain :Employee .
+:hasName rdfs:range xsd:string .
+
+:gotPurpose a rdf:Property .
+:gotPurpose rdfs:domain :Travel .
+:gotPurpose rdfs:range xsd:string .
+
+:gotExchangeRate a rdf:Property .
+:gotExchangeRate rdfs:domain :Invoice .
+:gotExchangeRate rdfs:range xsd:decimal .
+
+:personMonthSpent a rdf:Property .
+:personMonthSpent rdfs:domain :WorkPackage .
+:personMonthSpent rdfs:range xsd:integer .
+
+:have a rdf:Property .
+:have rdfs:domain :Company .
+:have rdfs:range :Employee .
+
+:workAt a rdf:Property .
+:workAt rdfs:domain :Employee .
+:workAt rdfs:range :Company .
+
+:workOnProject a rdf:Property .
+:workOnProject rdfs:domain :Employee .
+:workOnProject rdfs:range :EuropeanProject .
+
+:hasReportingPeriod a rdf:Property .
+:hasReportingPeriod rdfs:domain :EuropeanProject .
+:hasReportingPeriod rdfs:range :ReportingPeriod .
+
+:includeIn a rdf:Property .
+:includeIn rdfs:domain :Task .
+:includeIn rdfs:range :EuropeanProject .
+
+:relatedWP a rdf:Property .
+:relatedWP rdfs:domain :TasK .
+:relatedWP rdfs:range :WorkPackage .
+
+:aboutProject a rdf:Property .
+:aboutProject rdfs:range :EuropeanProject .
+
+:WorkPackageAboutProject a rdf:Property .
+:WorkPackageAboutProject rdfs:range :EuropeanProject .
+
+
+:duringTravel a rdf:Property .
+:duringTravel rdfs:domain :Invoice .
+:duringTravel rdfs:range :Travel .
+
+:onProject a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range :EuropeanProject .
+
+:EuropeanProject a rdfs:Class .
+:EuropeanProject rdfs:label "European Project"@en .
+:EuropeanProject rdfs:label "Projet Européen"@fr .
+:EuropeanProject skos:definition """Un projet européen est est une initiative collaborative financé par des subventions de l’Union Européenne afin de répondre à des enjeux communs pour produire un impact positif concret dans l’Union Européenne"""@fr .
+
+:WorkPackage a rdfs:Class . 
+:WorkPackage rdfs:label "Work Package"@en .
+:WorkPackage skos:definition """Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen."""@fr .
+
+:ReportingPeriod a rdfs:Class . 
+:ReportingPeriod rdfs:label "Reporting Period"@en.
+:Reporting skos:definition """ C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet"""@fr .
+
+:Employee a rdfs:Class .
+:Employee rdfs:label "Employee"@en .
+:Employee rdfs:label "Salarié"@fr .
+:Employée skos:definition "C'est une personne qui occupe un emploi sous l'ordre d'un employeur et qui participe à un projet"@fr .
+
+
+
+# travel entities 
+:Travel rdf:type rdfs:Class .
+:Travel rdfs:label "Travel"@en .
+:Travel rdfs:label "Voyage"@fr .
+:Travel rdf:definition "C'est un voyage entrepris par le personnel de l'entreprise dans le cadre d'un projet"@fr .
+
+:Travel_1 rdf:type :Travel ;
+    :travelEventName "LUMEN_Meet1" ;
+    :aboutProject :LUMEN ;
+    :destination "Milan" ;
+    :gotPurpose "SHOPPING" ;
+    :startDate "2025-09-23"^^xsd:date ;
+    :endDate "2025-09-24"^^xsd:date ;
+    :duringPeriod :P1 .
+
+:Travel_2 rdf:type :Travel ;
+    :travelEventName "LUMEN_Meet2" ;
+    :aboutProject :LUMEN ;
+    :startDate "2026-09-23"^^xsd:date ;
+    :endDate "2026-09-24"^^xsd:date .
+
+:Travel_3 rdf:type :Travel ;
+    :travelEventName "LUMEN_Meet3" ;
+    :aboutProject :LUMEN ;
+    :destination "Stockholm" ;
+    :gotPurpose "WP2" ;
+    :startDate "2027-11-20"^^xsd:date ;
+    :endDate "2027-11-30"^^xsd:date .
+
+#Invoice entities 
+
+:Invoice rdf:type rdfs:Class .
+:Invoice rdfs:label "Invoice"@en .
+:Invoice rdfs:label "Facture"@fr .
+:Invoice skos:definition "Document officiel appuyant une demande de remboursement de frais émis dans le cadre d’un projet européen."@en .
+
+:Invoice_1 rdf:type :Invoice ;
+    :amount 45.0 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :aboutProject :LUMEN ;
+    :gotExchangeRate 1.0 .
+
+:Invoice_2 rdf:type :Invoice ;
+    :aboutProject :LUMEN ;
+    :duringPeriod :P1 ;
+    :duringTravel :Travel_3 ;
+    :hasDate "2025-09-23"^^xsd:date ;
+    :beneficiary :Employee3 ;
+    :gotExchangeRate 1.0 ;
+    :amount 3000 .
+
+:Company a rdfs:Class .
+:Company rdfs:label "Company"@en .
+:Company rdfs:label "Entreprise"@fr .
+:Company skos:definition "C'est une organisation humaine participant à un projet"@fr .
+
+### EMPLOYEE ###
+
+:Employee1 rdf:type :Employee .
+:Employee1 :workOnProject :FairImpact .
+:Employee1 :gotAnnualProductiveHours 1720 .
+:Employee1 :workAt :Company .
+:Employee1 :hasName "Employee1" .
+
+:Employee2 rdf:type :Employee .
+:Employee2 :workOnProject :FairImpact .
+:Employee2 :gotAnnualProductiveHours 1720 .
+:Employee2 :hasName "Employee2" .
+
+:Employee3 rdf:type :Employee .
+:Employee3 :workAt :Company .
+:Employee3 :workOnProject :FairImpact .
+:Employee3 :gotAnnualProductiveHours 1720 .
+:Employee3 :hasName "Employee3" .
+
+:Employee4 rdf:type :Employee .
+:Employee4 :workAt :Company .
+:Employee4 :workOnProject :FairImpact .
+:Employee4 :gotAnnualProductiveHours 1720 .
+:Employee4 :hasName "Employee4" .
+
+### PROJET FAIR IMPACT ### 
+
+:FairImpact rdf:type :EuropeanProject ;
+    :startDate "2022-06-01"^^xsd:date ;
+    :endDate "2025-15-31"^^xsd:date ;
+    :duration "P36M"^^xsd:duration ;
+    :hasReportingPeriod :ReportingPeriod .
+
+### reporting period entities ###
+
+:P1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "P1" ;
+    :duration "P1M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-01-31"^^xsd:date .
+
+:RP1 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP1" ;
+    :partOf :P1 ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2025-01-01"^^xsd:date ;
+    :endDate "2025-12-31"^^xsd:date .
+
+:RP2 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP2" ;
+    :duration "P12M"^^xsd:duration ;
+    :startDate "2026-01-01"^^xsd:date ;
+    :endDate "2026-12-31"^^xsd:date .
+
+:RP3 a :ReportingPeriod ;
+    :aboutProject :LUMEN ;
+    :gotName "RP3" ;
+    :duration "P24M"^^xsd:duration ;
+    :startDate "2027-01-01"^^xsd:date ;
+    :endDate "2028-12-31"^^xsd:date .
+
+:WP1 rdf:type :WorkPackage .
+:WP1 :WorkPackageAboutProject :FairImpact .
+:WP1 :PersonMonthAllocated 1 .
+:WP1 :gotName "WP1" . 
+:WP1 :gotTitle "PROJECT MANAGEMENT, SYNCHRONISATION AND SUSTAINABILITY" .
+# :WP1 :belongsToPeriod :P1 .
+
+:WP4 rdf:type :WorkPackage .
+:WP4 :WorkPackageAboutProject :FairImpact .
+:WP4 :PersonMonthAllocated 12 .
+:WP4 :gotName "WP4" .
+:WP4 :gotTitle "METADATA AND ONTOLOGIES" .
+
+:WP5 rdf:type :WorkPackage .
+:WP5 :WorkPackageAboutProject :FairImpact .
+:WP5 :PersonMonthAllocated 3 .
+:WP5 :gotName "WP5" .
+:WP5 :gotTitle "METRICS, CERTIFICATION AND GUIDELINES" .
+
+:WP6 rdf:type :WorkPackage .
+:WP6 :WorkPackageAboutProject :FairImpact .
+:WP6 :PersonMonthAllocated 3 .
+:WP6 :gotName "WP6" .
+:WP6 :gotTitle "INTEROPERABILITY" .
+
+:Task a rdfs:Class . 
+
+:Task1 rdf:type :Task .
+:Task1 :includeIn :LUMEN .
+:Task1 :gotName "Task 1.0" . 
+:Task1 :relatedWP :WP4 .
+:Task1 :belongsToPeriod  :P1 .
+
+
+### WORK RECORD 
+:WorkRecord a rdfs:Class .
+
+:employee a rdf:Property ;
+    rdfs:domain :WorkRecord, :EmployeeRecord, :HourlyRateRecord ;
+    rdfs:range :Employee .
+
+:onWorkPackage a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range :WorkPackage .
+
+:duringPeriod a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range :ReportingPeriod .
+
+:hoursWorked a rdf:Property ;
+    rdfs:domain :WorkRecord ;
+    rdfs:range xsd:decimal .
+
+:durinemployee4 a rdf:Property ;
+    rdfs:domain :WorkRecord, :EmployeeRecord ;
+    rdfs:range xsd:employee4 .
+
+:duringMonth a rdf:Property ;
+    rdfs:domain :WorkRecord, :EmployeeRecord ;
+    rdfs:range xsd:gMonth .        
+
+
+#Data issus de donnée fictives et d'une structure basée sur les données réelles
+
+:WR1 a :WorkRecord ;
+    :employee :Employee3 ;
+    :onProject :FairImpact ;
+    :duringYear "2025";
+    :duringMonth "--01";
+    :duringPeriod :P1, :RP1 ;  #De quelle maniére cet Object Property sera définis ? Inférence ? Régles ? Requêtes généralisé ? 
+    :onWorkPackage :WP3 ;
+    :hoursWorked 30 .
+
+
+### EMPLOYEE RECORD
+
+:EmployeeRecord a rdfs:Class .
+
+### 2023 ###
+
+:ER1 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--01" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 . 
+
+:ER2 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--02" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 . 
+
+:ER3 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--03" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 . 
+
+:ER4 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 . 
+
+:ER5 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--05" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1806.06 .   
+
+:ER6 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--06" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 . 
+
+:ER7 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--07" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1806.06 .      
+
+:ER8 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--08" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 .  
+
+
+:ER9 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--09" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1750.71 .  
+
+
+:ER10 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--10" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 .  
+
+:ER11 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--11" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1750.71 . 
+
+:ER12 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2023" ;
+       :duringMonth "--12" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1808.99 .                 
+
+:ER13 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--05" ;
+       :gotSalaryGross 993.28 ;
+       :gotPatronalContribution 607.73 .   
+
+:ER14 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--06" ;
+       :gotSalaryGross 1340.51 ;
+       :gotPatronalContribution 882.27 .    
+
+:ER15 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--07" ;
+       :gotSalaryGross 1327 ;
+       :gotPatronalContribution 874 .  
+
+:ER16 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--08" ;
+       :gotSalaryGross 1308 ;
+       :gotPatronalContribution 861 .
+
+:ER17 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--09" ;
+       :gotSalaryGross 1297 ;
+       :gotPatronalContribution 881 .                               
+
+:ER18 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--10" ;
+       :gotSalaryGross 1301 ;
+       :gotPatronalContribution 856 .   
+
+:ER19 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--11" ;
+       :gotSalaryGross 1308 ;
+       :gotPatronalContribution 861 .         
+
+:ER20 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2023" ;
+       :duringMonth "--12" ;
+       :gotSalaryGross 1296 ;
+       :gotPatronalContribution 880 . 
+
+:ER21 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--05" ;
+       :gotSalaryGross 1746.83 ;
+       :gotPatronalContribution 321.15 . 
+
+:ER22 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--06" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 424.06 .
+
+:ER23 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--07" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 424.23 .
+
+:ER24 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--08" ;
+       :gotSalaryGross 2360.69 ;
+       :gotPatronalContribution 469.89 .     
+
+:ER25 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--09" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 423.78 .  
+
+:ER26 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--10" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 425.03 .                                 
+
+:ER27 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--11" ;
+       :gotSalaryGross 2098.94 ;
+       :gotPatronalContribution 385.22 .  
+
+
+:ER28 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2023" ;
+       :duringMonth "--12" ;
+       :gotSalaryGross 2030.84 ;
+       :gotPatronalContribution 376.21 .
+
+### 2024 ###
+
+:ER29 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--01" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1756.2 . 
+
+:ER30 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--02" ;
+       :gotSalaryGross 3669.24 ;
+       :gotPatronalContribution 1446.01 .
+
+:ER31 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--03" ;
+       :gotSalaryGross 1176.96 ;
+       :gotPatronalContribution 508.25 .
+
+:ER32 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1758.9 .                 
+
+:ER33 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--05" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1814.25 .
+
+:ER34 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--06" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1814.25 .
+
+:ER35 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--07" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1814.25 . 
+
+:ER36 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--08" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1814.25 .
+
+:ER37 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--09" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1814.25 .
+
+:ER38 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--10" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1814.25 . 
+
+:ER39 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--11" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1814.25 .
+
+:ER40 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2024" ;
+       :duringMonth "--12" ;
+       :gotSalaryGross 4500 ;
+       :gotPatronalContribution 1783.65 .   
+
+:ER41 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2024" ;
+       :duringMonth "--01" ;
+       :gotSalaryGross 1267 ;
+       :gotPatronalContribution 849 .  
+
+:ER42 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2024" ;
+       :duringMonth "--02" ;
+       :gotSalaryGross 1249 ;
+       :gotPatronalContribution 837 . 
+
+:ER43 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2024" ;
+       :duringMonth "--03" ;
+       :gotSalaryGross 1244 ;
+       :gotPatronalContribution 860 . 
+
+:ER44 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2024" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 1158 ;
+       :gotPatronalContribution 953 . 
+
+:ER44 a :EmployeeRecord ;
+       :employee :Employee3 ;    
+       :duringYear "2024" ;
+       :duringMonth "--05" ;
+       :gotSalaryGross 299 ;
+       :gotPatronalContribution 247 . 
+
+:ER45 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2024" ;
+       :duringMonth "--01" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 473.26 . 
+ 
+:ER46 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2024" ;
+       :duringMonth "--02" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 473.26 .
+
+:ER47 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2024" ;
+       :duringMonth "--03" ;
+       :gotSalaryGross 1759.04 ;
+       :gotPatronalContribution 376.12 .   
+
+:ER47 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2024" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 2381.45 ;
+       :gotPatronalContribution 537.38 .                                                                                  
+
+:ER48 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2024" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 3993.24 ;
+       :gotPatronalContribution 2864.96 .   
+
+:ER48 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2024" ;
+       :duringMonth "--11" ;
+       :gotSalaryGross 1750.46 ;
+       :gotPatronalContribution 283.61 .
+
+:ER49 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2024" ;
+       :duringMonth "--12" ;
+       :gotSalaryGross 2250.61 ;
+       :gotPatronalContribution 414.67 .          
+
+### 2025 ###
+
+:ER50 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2025" ;
+       :duringMonth "--01" ;
+       :gotSalaryGross 6000.07 ;
+       :gotPatronalContribution 2352.9 . 
+
+:ER51 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2025" ;
+       :duringMonth "--02" ;
+       :gotSalaryGross 6000.07 ;
+       :gotPatronalContribution 2393.7 . 
+
+:ER52 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2025" ;
+       :duringMonth "--03" ;
+       :gotSalaryGross 6000.07 ;
+       :gotPatronalContribution 2393.7 . 
+
+:ER53 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2025" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 6000.07 ;
+       :gotPatronalContribution 2393.7 . 
+
+:ER54 a :EmployeeRecord ;
+       :employee :Employee1 ;    
+       :duringYear "2025" ;
+       :duringMonth "--05" ;
+       :gotSalaryGross 6000.07 ;
+       :gotPatronalContribution 2396.7 . 
+
+:ER55 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2025" ;
+       :duringMonth "--01" ;
+       :gotSalaryGross 2054.86 ;
+       :gotPatronalContribution 384.28 . 
+
+:ER56 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2025" ;
+       :duringMonth "--02" ;
+       :gotSalaryGross 2425.14 ;
+       :gotPatronalContribution 467.91 .  
+
+:ER57 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2025" ;
+       :duringMonth "--03" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 442.87 .   
+
+:ER58 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2025" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 2098.94 ;
+       :gotPatronalContribution 408.33 .
+
+:ER59 a :EmployeeRecord ;
+       :employee :Employee4 ;    
+       :duringYear "2025" ;
+       :duringMonth "--04" ;
+       :gotSalaryGross 2308.79 ;
+       :gotPatronalContribution 442.78 .  
+
+### HOURLY RATE RECORD ###
+
+:HourlyRateRecord a rdfs:Class .
+
+
+:HR1 a :HourlyRateRecord ;
+       :employee :Employee1 ;
+       :gotHourlyRate 43.95 ;
+       :duringYear "2023" .
+
+:HR2 a :HourlyRateRecord ;
+       :employee :Employee3 ;
+       :gotHourlyRate 26.37 ;
+       :duringYear "2023" .
+
+:HR3 a :HourlyRateRecord ;
+       :employee :Employee4 ;
+       :gotHourlyRate 18.07 ;
+       :duringYear "2023" . 
+
+:HR4 a :HourlyRateRecord ;
+       :employee :Employee1 ;
+       :gotHourlyRate 40.58 ;
+       :duringYear "2024" . 
+
+:HR5 a :HourlyRateRecord ;
+       :employee :Employee3 ;
+       :gotHourlyRate 28.01 ;
+       :duringYear "2024" .               
+
+:HR6 a :HourlyRateRecord ;
+       :employee :Employee4 ;
+       :gotHourlyRate 22.10 ;
+       :duringYear "2024" . 
+
+:HR7 a :HourlyRateRecord ;
+       :employee :Employee1 ;
+       :gotHourlyRate 58.51 ;
+       :duringYear "2025" .        
+
+:HR8 a :HourlyRateRecord ;
+       :employee :Employee4 ;
+       :gotHourlyRate 18.62 ;
+       :duringYear "2025" . 
+
+:HR9 a :HourlyRateRecord ;
+       :employee :Employee5 ;
+       :gotHourlyRate 75 ;
+       :duringYear "2025" .        
